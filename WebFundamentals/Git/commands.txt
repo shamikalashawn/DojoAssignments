@@ -1,0 +1,35 @@
+Open Terminal
+Navigate to Desktop
+     pwd
+     cd desktop
+Create a new dir called ‘test’
+     mkdir test
+Make files inside ‘test’ dir
+     cd test
+     touch index.html
+     touch styles.css
+     touch commands.txt
+Make copy of index.html
+     cp index.html index_2.html
+Remove styles.css file
+     rm styles.css
+Nav back to desktop and make dir ‘destination’
+     cd ..
+     pwd
+     ls
+     mkdir destination
+Move index_2.html from ‘test’ to ‘destination’ dir
+     ls
+     cd test
+     mv index_2.html Users/LaShawn/Desktop/destination
+     ls
+Check what files are in ‘test’ and ‘destination’
+     pwd
+     ls
+     cd ..
+     cd destination
+     ls
+Delete ‘destination’ dir
+     pwd
+     cd ..
+     rm -rf destination

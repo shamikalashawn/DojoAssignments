@@ -1,0 +1,120 @@
+Last login: Mon Mar  6 15:45:30 on ttys000
+Shamikas-MBP:~ LaShawn$ pwd
+/Users/LaShawn
+Shamikas-MBP:~ LaShawn$ ls
+Applications				Pictures
+Desktop					Public
+Documents				PycharmProjects
+Downloads				american conservative response.txt
+Dropbox					ibt_application.log
+GitHub					ibtsa.log
+Google Drive				oasys.log
+Library					summary.txt
+Movies					temp
+Music
+Shamikas-MBP:~ LaShawn$ cd desktop
+Shamikas-MBP:desktop LaShawn$ mkdir test
+Shamikas-MBP:desktop LaShawn$ ls
+Screen Shot 2017-02-28 at 9.41.12 PM.png
+Screen Shot 2017-03-05 at 4.31.36 PM.png
+Screen Shot 2017-03-05 at 4.34.52 PM.png
+Screen Shot 2017-03-05 at 4.36.22 PM.png
+Screen Shot 2017-03-05 at 4.36.50 PM.png
+Screenshots
+Shamika Goddard.vcf
+test
+Shamikas-MBP:desktop LaShawn$ cd test
+Shamikas-MBP:test LaShawn$ touch index.html
+Shamikas-MBP:test LaShawn$ ls
+index.html
+Shamikas-MBP:test LaShawn$ touch styles.css
+Shamikas-MBP:test LaShawn$ ls
+index.html	styles.css
+Shamikas-MBP:test LaShawn$ touch commands.txt
+Shamikas-MBP:test LaShawn$ ls
+commands.txt	index.html	styles.css
+Shamikas-MBP:test LaShawn$ copy index.html index_2.html
+-bash: copy: command not found
+Shamikas-MBP:test LaShawn$ cp index.html index_2.html
+Shamikas-MBP:test LaShawn$ ls
+commands.txt	index.html	index_2.html	styles.css
+Shamikas-MBP:test LaShawn$ rm styles.css
+Shamikas-MBP:test LaShawn$ ls
+commands.txt	index.html	index_2.html
+Shamikas-MBP:test LaShawn$ cd ..
+Shamikas-MBP:desktop LaShawn$ pwd
+/Users/LaShawn/desktop
+Shamikas-MBP:desktop LaShawn$ mkdir destination
+Shamikas-MBP:desktop LaShawn$ ls
+Screen Shot 2017-02-28 at 9.41.12 PM.png
+Screen Shot 2017-03-05 at 4.31.36 PM.png
+Screen Shot 2017-03-05 at 4.34.52 PM.png
+Screen Shot 2017-03-05 at 4.36.22 PM.png
+Screen Shot 2017-03-05 at 4.36.50 PM.png
+Screenshots
+Shamika Goddard.vcf
+destination
+test
+Shamikas-MBP:desktop LaShawn$ mv index_2.html /Users/LaShawn/Desktop/Destination
+mv: rename index_2.html to /Users/LaShawn/Desktop/Destination/index_2.html: No such file or directory
+Shamikas-MBP:desktop LaShawn$ cd test
+Shamikas-MBP:test LaShawn$ ls
+commands.txt	index.html	index_2.html
+Shamikas-MBP:test LaShawn$ mv index_2.html /Users/LaShawn/Desktop/Destination
+Shamikas-MBP:test LaShawn$ ls
+commands.txt	index.html
+Shamikas-MBP:test LaShawn$ cd ..
+Shamikas-MBP:desktop LaShawn$ ls
+Screen Shot 2017-02-28 at 9.41.12 PM.png
+Screen Shot 2017-03-05 at 4.31.36 PM.png
+Screen Shot 2017-03-05 at 4.34.52 PM.png
+Screen Shot 2017-03-05 at 4.36.22 PM.png
+Screen Shot 2017-03-05 at 4.36.50 PM.png
+Screenshots
+Shamika Goddard.vcf
+destination
+test
+Shamikas-MBP:desktop LaShawn$ cd destination
+Shamikas-MBP:destination LaShawn$ ls
+index_2.html
+Shamikas-MBP:destination LaShawn$ cd..
+-bash: cd..: command not found
+Shamikas-MBP:destination LaShawn$ cd ..
+Shamikas-MBP:desktop LaShawn$ ls
+Screen Shot 2017-02-28 at 9.41.12 PM.png
+Screen Shot 2017-03-05 at 4.31.36 PM.png
+Screen Shot 2017-03-05 at 4.34.52 PM.png
+Screen Shot 2017-03-05 at 4.36.22 PM.png
+Screen Shot 2017-03-05 at 4.36.50 PM.png
+Screenshots
+Shamika Goddard.vcf
+destination
+test
+Shamikas-MBP:desktop LaShawn$ cd test
+Shamikas-MBP:test LaShawn$ ls
+commands.txt	index.html
+Shamikas-MBP:test LaShawn$ rm -rf destination
+Shamikas-MBP:test LaShawn$ ls
+commands.txt	index.html
+Shamikas-MBP:test LaShawn$ cd ..
+Shamikas-MBP:desktop LaShawn$ ls
+Screen Shot 2017-02-28 at 9.41.12 PM.png
+Screen Shot 2017-03-05 at 4.31.36 PM.png
+Screen Shot 2017-03-05 at 4.34.52 PM.png
+Screen Shot 2017-03-05 at 4.36.22 PM.png
+Screen Shot 2017-03-05 at 4.36.50 PM.png
+Screenshots
+Shamika Goddard.vcf
+destination
+test
+Shamikas-MBP:desktop LaShawn$ rm -rf destination
+Shamikas-MBP:desktop LaShawn$ ls
+Screen Shot 2017-02-28 at 9.41.12 PM.png
+Screen Shot 2017-03-05 at 4.31.36 PM.png
+Screen Shot 2017-03-05 at 4.34.52 PM.png
+Screen Shot 2017-03-05 at 4.36.22 PM.png
+Screen Shot 2017-03-05 at 4.36.50 PM.png
+Screenshots
+Shamika Goddard.vcf
+test
+Shamikas-MBP:desktop LaShawn$ 
