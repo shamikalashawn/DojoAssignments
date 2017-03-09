@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>My Registration Form</title>
+    </head>
+    <body>
+        <h1>My Registration Form</h1>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" />
+        <div>
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" />
+        </div>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" />
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" />
+        </div>
+        <div>
+            <label for="pw_confirm">PW Confirmation:</label>
+            <input type="password" id="pw_confirm" name="password_confirmation" />
+        </div>
+        <div>
+            <label for="date">Birthday:</label>
+            <input type="date" id="date" name="date" />
+            <img src=http://www.clipartkid.com/images/218/blank-calendar-clipart-calendar-blank-1-clip-art-aZXfXG-clipart.png alt="Clipart calendar" height="25" width="25" />
+        </div>
+        <div>
+            <label for="male">Male</label>
+            <input type="radio" id="male" name="gender" />
+            <label for="female">Female</label>
+            <input type="radio" id="female" name="gender" />
+            <label for="other">Other</label>
+            <input type="radio" id="other" name="gender" />
+        </div>
+        <div>
+            <p>
+                A short description about yourself:
+            </p>
+            <textarea name="description"></textarea>
+        </div>
+        <p>
+
+        </p>
+        <div>
+            <label>Favorite Language</label>
+            <select name="language">
+                <option value="Javascript">
+                    Javascript
+                </option>
+                <option value="Javascript">
+                    Python
+                </option>
+                <option value="Javascript">
+                    PHP
+                </option>
+                <option value="Javascript">
+                    C++
+                </option>
+                <option value="Javascript">
+                    HTML
+                </option>
+                <option value="Javascript">
+                    CSS
+                </option>
+            </select>
+        </div>
+        <p>
+        </p>
+        <input type="submit" value="Submit" />
+    </body>
+</html>

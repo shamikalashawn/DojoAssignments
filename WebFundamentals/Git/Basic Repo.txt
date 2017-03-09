@@ -1,0 +1,25 @@
+Create a local repository also called basic_repo
+	mkdir basic_repo
+	cd basic_repo
+	git init
+Create some files inside your local repo and add some content on them
+	touch index.html
+	touch styles.css
+	touch README.md
+	vi index.html
+	“add text”
+	vi README.md
+	“add text”
+Add, commit, and push these changes to GitHub
+	git status
+	git add .
+	git commit -m “initial commit”
+	git remote add origin https://github.com/shamikalashawn/basic_repo.git
+	git push -u origin master
+Make some more changes to the local copy of your file and push them to GitHub
+	vi styles.css
+	“add text”
+	git status
+	git add .
+	git commit -m “added text to styles.css”
+	git push

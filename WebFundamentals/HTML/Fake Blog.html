@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Shamika's Fake Blog</title>
+        <meta name="description" content="Shamika created a fake blog for her Coding Dojo HTML lesson.  Here she does share some real and some false facts about herself and includes a brief survey for viewers" />
+        <link rel="stylesheet" type="text/css" href="fake_blog.css" />
+    </head>
+    <body>
+        <h1>Shamika's Fake Blog</h1>
+        <img src="img/dojo_image.png" alt="picture of the dojo">
+        <div>
+            <p>
+                Shamika grew up as a magical pony in South Texas.  She had three powers:
+                <ol>
+                    <li>
+                        Flight
+                    </li>
+                    <li>
+                        Time Travel
+                    </li>
+                    <li>
+                        Chocolate Kisses
+                    </li>
+                </ol>
+                But she eventually changed into a human after 12 years.  There were many things she missed:
+                <ul>
+                    <li>
+                        Her mane
+                    </li>
+                    <li>
+                        Her magic powers
+                    </li>
+                    <li>
+                        Her friends
+                    </li>
+                </ul>
+                She keeps in touch with her old friends through the magic of the internet.
+                <a href="http://mylittlepony.hasbro.com/en-us">Friendship is Magic</a>
+            </p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pony</th>
+                    <th>Color</th>
+                    <th>Town</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Celestria</td>
+                    <td>Yellow</td>
+                    <td>Equestria</td>
+                </tr>
+                <tr>
+                    <td>Adelphi</td>
+                    <td>Blue</td>
+                    <td>Equestria</td>
+                </tr>
+            </tbody>
+        </table>
+        <form action="process.php" method="post">
+            <h3>
+                Please fill out this brief survey.
+            </h3>
+            <label for="fav_pony">Favorite Pony</label>
+            <input type="text" id="fav_pony" name="favorite_pony" />
+            <br />
+            <p>
+                Which power would you choose?
+            </p>
+            <label for="flight">Flight</label>
+            <input type="checkbox" id="flight" name="power" value="flight" />
+            <label for="time_travel">Time Travel</label>
+            <input type="checkbox" id="time_travel" name="power" value="time_travel" />
+            <label for="choco_kisses">Chocolate Kisses</label>
+            <input type="checkbox" id="choco_kisses" name="power" value="chocolate_kisses" />
+            <label for="pony_name">What's your pony name?</label>
+            <input type="text" id="pony_name" name="pony_name" />
+            <p>
+                What do you think Shamika missed the most?
+            </p>
+            <label for="mane">Her mane</label>
+            <input type="radio" id="mane" name="mane"/>
+            <label for="magic_powers">Her magic powers</label>
+            <input type="radio" id="magic_powers" name="magic_powers"/>
+            <label for="friends">Her friends</label>
+            <input type="radio" id="friends" name="friends"/>
+            <p>
+                Which of Shamika's pony friends do you want to be friends with?
+            </p>
+            <select name="friends">
+                <option value="Celestria">
+                    Celestria
+                </option>
+                <option value="Adelphi">
+                    Adelphi
+                </option>
+                <option value="Both">
+                    Both!
+                </option>
+            </select>
+            <br />
+            <br />
+            <input type="submit" name="Submit" />
+        </form>
+    </body>
+</html>
