@@ -1,0 +1,27 @@
+*{
+  background-color: #d4d1af;
+}
+
+#headerimg{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1{
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.bodyimgwhite{
+  border: 8px solid #84b5ec;
+  outline: 2px solid black;
+  margin: 3px;
+}
+
+.bodyimgred{
+  outline: 2px solid black;
+  margin: 3px;
+  background-color: #f16a73;
+  border: 8px solid #f16a73;
+}
