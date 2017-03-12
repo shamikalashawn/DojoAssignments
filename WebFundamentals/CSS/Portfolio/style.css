@@ -1,0 +1,97 @@
+#header{
+  background: #f8f8f8;
+  width: 100%;
+  height: 10%;
+}
+#header h1{
+  display: inline-block;
+  font-weight: bold;
+  margin-top: -1px;
+  padding-left: 15px;
+}
+#header h3{
+  display: inline-block;
+  float: right;
+  font-weight: bold;
+}
+#content{
+  width: 100%;
+  height: 90%;
+  background-color: #6f5964;
+  background: radial-gradient(#6f5964, #1f0e13);
+}
+#footer{
+  background: #f8f8f8;
+  width: 100%;
+  height: 10%;
+}
+#footer p{
+  background: #f8f8f8;
+}
+#mainphoto{
+  display: inline-block;
+  border: 5px solid #c0c0c0;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+#about{
+  width: 48%;
+  height: 40%;
+  display: inline-block;
+  background: white;
+  background: linear-gradient(to right, white , #dbccda);
+  float: right;
+  vertical-align: top;
+  margin-top: 5%;
+  margin-right: 5%;
+}
+#about p:nth-last-of-type(1){
+  height: 124px;
+}
+.heading{
+  background-color: #acacb1;
+  background: linear-gradient(#acacb1, #8c8a97);
+  margin-top: -1px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+.heading h5{
+  padding: 0px;
+}
+p{
+  margin: 0px;
+  padding: 10px;
+  background: white;
+  background: linear-gradient(to right, white , #dbccda);
+}
+.bottomcontent{
+  display: inline-block;
+  margin: 10px 5px;
+}
+.bottomcontent div{
+  width: 29.5%;
+}
+.bottomcontent img{
+  width: 100%;
+  margin-bottom: 0px;
+}
+.bottomcontent div p img{
+  width: 18%;
+}
+.bottomcontent p:first-of-type{
+  margin-top: -5px;
+}
+#button{
+  border-radius: 10px;
+  background: #407d61;
+  margin-bottom: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+}
+.bottomparagraph{
+  height: 300px;
+}
+#left{
+  margin-left: 5%;
+}
