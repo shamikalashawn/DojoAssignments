@@ -83,7 +83,7 @@ p{
 .bottomcontent p:first-of-type{
   margin-top: -5px;
 }
-#button{
+.button{
   border-radius: 10px;
   background: #407d61;
   margin-bottom: 10px;
