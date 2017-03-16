@@ -1,0 +1,162 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+  background-color: #dddfd4;
+}
+#all{//Need to make the background color gray
+  width: 970px;
+  height: 900px;
+}
+header{
+  background-color: #3fb0ac;
+  display: inline-block;
+  margin: 10px;
+}
+header img{ //Need to make the background of the image the same color as the header background
+  background-color: transparent;
+  width: 50px;
+  margin-top: 20px;
+}
+#header-left{
+  width: 300px;
+  display: inline-block;
+  background-color: #3fb0ac;
+}
+#header-left img, h1{
+  display: inline-block;
+  background-color: #3fb0ac;
+}
+#header-left img{//Need to align the text and the image so they are vertically centered
+  margin-top: 10px;
+  margin-left: 10px;
+  vertical-align: baseline;
+}
+#header-left h1{
+  margin: 0px 10px 20px 0px;
+  display: inline-block;
+}
+#header-right{
+  width: 600px;
+  display: inline-block;
+  background-color: #3fb0ac;
+}
+#header-right ul{
+  background-color: #3fb0ac;
+}
+#header-right li{
+  color: white;
+  text-decoration: underline;
+  display: inline-block;
+  background-color: #3fb0ac;
+}
+#content{
+  background-color: #fae596;
+  width: 900px;
+  height: 700px;
+  margin: 10px;
+  display: inline-block;
+}
+#left-content{
+  background-color: #173f43;
+  width: 15%;
+  padding: 20px 10px 10px 10px;
+  margin: 15px 0px 15px 15px;
+  display: inline-block;
+}
+#left-content h2, p{
+  background-color: #173f43;
+  color: white;
+  margin: 5px 0px 5px 0px;
+}
+#left-content p{
+  margin: 10px;
+  font-size: 12px;
+}
+#right-content{
+  background-color: #fae596;
+  display: inline-block;
+  width: 75%;
+  vertical-align: top;
+}
+#main1{
+  display: inline-block;
+  background-color: #fae596;
+  width: 100%;
+  vertical-align: top;
+  margin: 15px;
+}
+.git1{
+  display: inline-block;
+  width: 28%;
+  background-color: #173f43;
+  vertical-align: top;
+  height: 170px;
+  margin: 0px 15px 15px 15px;
+}
+.git1 h3{
+  background-color: #173f43;
+  color: white;
+  margin: 5px 0px 10px 5px;
+  font-weight: normal;
+}
+.git1 p{
+  margin: 5px 15px 5px 10px;
+}
+span{
+  color: #54d9c9;
+  background-color: #173f43;
+}
+#main2{
+  display: inline-block;
+  background-color: #fae596;
+  width: 100%;
+  margin: 15px;
+}
+.git2{
+  display: inline-block;
+  width: 45%;
+  background-color: #173f43;
+  vertical-align: top;
+  height: 160px;
+  margin: 10px 15px 15px 15px;
+}
+.git2 h3{
+  background-color: #173f43;
+  color: white;
+  margin: 5px 0px 10px 5px;
+  font-weight: normal;
+}
+.git2 p{
+  margin: 5px 15px 5px 10px;
+}
+#main3{
+  display: inline-block;
+  width: 95%;
+  background-color: #173f43;
+  height: 190px;
+  margin: 15px 10px 15px 30px;
+}
+#main3 h3{
+  background-color: #173f43;
+  color: white;
+  margin: 5px 0px 10px 5px;
+  font-weight: normal;
+}
+#main3 p{
+  margin: 5px 15px 5px 10px;
+}
+footer{
+  background-color: #3fb0ac;
+  margin: 10px;
+  display: inline-block;
+}
+footer a{
+  background-color: #3fb0ac;
+  padding: 15px;
+}
+footer h5{
+  text-align: center;
+  background-color: #3fb0ac;
+  padding: 15px 240px 15px 240px;
+}
