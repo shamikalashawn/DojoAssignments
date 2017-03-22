@@ -1,0 +1,38 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+header{
+  background-color: blue;
+  color: white;
+  text-align: center;
+}
+#main-content{
+  background-color: turquoise;
+}
+.function{
+  display: inline-block;
+  margin: 5px;
+}
+  .function form{
+    display: inline-block;
+    position: relative;
+    bottom: 15px;
+  }
+  .function div{
+    display: inline-block;
+  }
+#before-after h2, #fade h2, #slide h2{
+  display: inline-block;
+}
+  #slide-button{
+    padding: 10px;
+  }
+.bold{
+  font-weight: bold;
+}
+footer{
+  background-color: blue;
+  color: white;
+  text-align: center;
+}

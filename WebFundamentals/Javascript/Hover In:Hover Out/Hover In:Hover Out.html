@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja to Cat</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('img').hover(
+          function() {
+            var ninja = $(this).attr('alt-pic-src')
+            $(this).attr('src', ninja)
+          }, function() {
+            var cat = $(this).attr('original-src')
+            $(this).attr('src', cat)
+          }
+        );
+      });
+      </script>
+  </head>
+  <body>
+    <img src="./hover%20images/cat0.png" alt-pic-src="./hover%20images/ninja0.png" original-src="./hover%20images/cat0.png">
+    <img src="./hover%20images/cat1.png" alt-pic-src="./hover%20images/ninja1.png" original-src="./hover%20images/cat1.png">
+    <img src="./hover%20images/cat2.png" alt-pic-src="./hover%20images/ninja2.png" original-src="./hover%20images/cat2.png">
+    <img src="./hover%20images/cat3.png" alt-pic-src="./hover%20images/ninja3.png" original-src="./hover%20images/cat3.png">
+    <img src="./hover%20images/cat4.png" alt-pic-src="./hover%20images/ninja4.png" original-src="./hover%20images/cat4.png">
+  </body>
+</html>
