@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Functions</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#click-button').click(function(){
+          $('#click-button').text('Ouch!')
+        });
+        $('#hide-button').click(function(){
+          $('#hide-button').hide()
+        });
+        $('#show').click(function(){
+          $('#hide-button').show()
+        });
+        $('#toggle h2').click(function(){
+          $('#toggle-button').toggle('slow')
+        });
+        $('#side-toggle').click(function(){
+          $('#toggle-button').slideToggle('slow')
+        });
+        $('#slide-up').click(function(){
+          $('#slide-button').slideUp()
+        });
+        $('#slide-down').click(function(){
+          $('#slide-button').slideDown()
+        });
+        $('#fade-in').click(function(){
+          $('#fade-button').fadeIn()
+        });
+        $('#fade-out').click(function(){
+          $('#fade-button').fadeOut()
+        });
+        $('#add-class-button').click(function (){
+          $('#add-class p').addClass('bold')
+        })
+        $('#before').click(function (){
+          $('#before-after-button').before('Please')
+        })
+        $('#after').click(function (){
+          $('#before-after-button').after('Now!')
+        })
+        $('#append-button').click(function (){
+          $('#append p').append('sentence.')
+        })
+        $('#html-button').click(function (){
+          var htmlString = $('#html p').html();
+          $('#html p').text(htmlString);
+        })
+        $('#attr img').click(function (){
+          $('#attr img').attr("width", "100px");
+        })
+        $('#val-input').keyup(function(){
+          var value = $(this).val();
+          $('form p').text(value);
+        })
+        $('#data-button').click(function(){
+          $('#data-button').data("value", 42);
+          $('#data span').text($('#data-button').data("value"));
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>jQuery Functions</h1>
+    </header>
+    <div id="main-content">
+      <div class="function" id="click">
+        <form>
+          <button id="click-button" type="button" name="button">Click Me</button>
+        </form>
+        <div class="description">
+          <h2>Click</h2>
+          <p>Click on the button to see a hidden message</p>
+        </div>
+      </div>
+      <div class="function" id="hide">
+        <form>
+          <button id="hide-button" type="button" name="button">Click Me</button>
+        </form>
+        <div class="description">
+          <h2>Hide/Show</h2>
+          <p>Click on the button to make it disappear. Don't worry, click <a id="show" href="#">here</a> to bring it back.</p>
+        </div>
+      </div>
+      <div class="function" id="toggle">
+        <form>
+          <button id="toggle-button" type="button" name="button">Toggle Me</button>
+        </form>
+        <div class="description">
+          <h2>Toggle</h2>
+          <p>Click on the word Toggle above to watch the button toggle. If you want to see it SideToggle, click <a id="side-toggle" href="#">here</a></p>
+        </div>
+      </div>
+      <div class="function" id="slide">
+        <form>
+          <button id="slide-button" type="button" name="button">Slide Me</button>
+        </form>
+        <div class="description">
+          <h2 id="slide-up">SlideUp</h2><h2 id="slide-down">/SlideDown</h2>
+          <p>Click on the word SlideUp or SlideDown above to watch the button do just that!</p>
+        </div>
+      </div>
+      <div class="function" id="fade">
+        <form>
+          <button id="fade-button" type="button" name="button">Fade Me</button>
+        </form>
+        <div class="description">
+          <h2 id="fade-in">FadeIn</h2><h2 id="fade-out">/FadeOut</h2>
+          <p>Click on the word FadeIn or FadeOut above to watch the button do just that!</p>
+        </div>
+      </div>
+      <div class="function" id="add-class">
+        <form>
+          <button id="add-class-button" type="button" name="button">Click Me</button>
+        </form>
+        <div class="description">
+          <h2>AddClass</h2>
+          <p>Click on the button to add the bold class to this paragraph.</p>
+        </div>
+      </div>
+      <div class="function" id="before-after">
+        <form>
+          <button id="before-after-button" type="button" name="button">Click Me</button>
+        </form>
+        <div class="description">
+          <h2 id="before">Before</h2><h2 id="after">/After</h2>
+          <p>Click on "Before" to add something to the beginning of the button. Click on "After" to add something to the end. Click the button to reset it.</p>
+        </div>
+      </div>
+      <div class="function" id="append">
+        <form>
+          <button id="append-button" type="button" name="button">Click Me</button>
+        </form>
+        <div class="description">
+          <h2>Append</h2>
+          <p>Click on the button to finish this </p>
+        </div>
+      </div>
+      <div class="function" id="html">
+        <form>
+          <button id="html-button" type="button" name="button">Click Me</button>
+        </form>
+        <div class="description">
+          <h2>Html</h2>
+          <p>Click on the button to <b>change</b> this paragraph from html to text!</p>
+        </div>
+      </div>
+      <div class="function" id="attr">
+        <img src="./github-icon.png" alt="GitHub Logo" width="50px">
+        <div class="description">
+          <h2>Attr</h2>
+          <p>Click on the picture to change its width attribute!</p>
+        </div>
+      </div>
+      <div class="function" id="val">
+        <form>
+          <input id="val-input" type="text" value="type something">
+          <p></p>
+        </form>
+        <div class="description">
+          <h2>Val</h2>
+          <p>Type something in the text box and watch the page keep track of it.</p>
+        </div>
+      </div>
+      <div class="function" id="data">
+        <form>
+          <button id="data-button" type="button" name="button">Click Me</button>
+        </form>
+        <div class="description">
+          <h2>Data</h2>
+          <p>Click on the button to set this variable to 42: x = <span>?</span></p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <h5>Thanks for stopping by</h5>
+    </footer>
+  </body>
+</html>
