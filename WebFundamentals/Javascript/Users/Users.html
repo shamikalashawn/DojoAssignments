@@ -7,8 +7,15 @@
     <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <script type="text/javascript">
       $(document).ready(function () {
-
-      }
+        $('button').click(function () {
+          var fName = $("#fName").val();
+          var lName = $("#lName").val();
+          var email = $("#email").val();
+          var contact = $("#contact").val();
+          var markup = "<tr><td>" + fName + "</td><td>" + lName + "</td><td>" + email + "</td><td>" + contact + "</td></tr>";
+          $('table tbody').append(markup);
+        })
+    });
     </script>
   </head>
   <body>
@@ -19,21 +26,24 @@
         <th>Email Address</th>
         <th>Contact #</th>
       </thead>
+      <tbody>
+
+      </tbody>
     </table>
     <div id="user">
       <h1>Add User</h1>
       <hr>
       <form action="index.html" method="post">
-        First Name: <input type="text" name="first_name" value="First Name">
+        First Name: <input id="fName" type="text" name="first_name" value="First Name">
       </form>
       <form action="index.html" method="post">
-        Last Name: <input type="text" name="last_name" value="Last Name">
+        Last Name: <input id="lName" type="text" name="last_name" value="Last Name">
       </form>
       <form action="index.html" method="post" id="email-address">
-        Email Address: <input type="text" name="email_address" value="Email Address">
+        Email Address: <input id="email" type="text" name="email_address" value="Email Address">
       </form>
-      <form action="index.html" method="post" id="contact">
-        Contact No.: <input type="text" name="contact_no" value="Phone #">
+      <form action="index.html" method="post" id="contact-no">
+        Contact No.: <input id="contact" type="text" name="contact_no" value="Phone #">
       </form>
       <button type="button" name="button">Add User</button>
     </div>

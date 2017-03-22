@@ -28,9 +28,13 @@ form{
   #email-address{
     margin-left: 5px;
   }
-  #contact{
+  #contact-no{
     margin-left: 20px;
   }
 button{
   margin: 30px 0px 0px 200px;
+  background-color: white;
+  background: linear-gradient(white, #d0d0d0);
+  border-radius: 3px;
+  padding: 2px 4px;
 }
