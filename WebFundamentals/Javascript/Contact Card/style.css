@@ -1,0 +1,44 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+header{
+  background-color: gray;
+  padding: 10px;
+}
+  header h3{
+    text-align: center;
+  }
+section{
+  margin: 10px;
+  height: 600px;
+}
+  section div{
+    display: inline-block;
+  }
+  #display-user{
+    vertical-align: top;
+    margin-left: 50px;
+  }
+    #display-user div{
+      display: inline-block;
+    }
+  section p, textarea{
+    display: inline-block;
+    margin: 5px 0px;
+  }
+  section p{
+    vertical-align: top;
+  }
+  section form{
+    margin: 5px 0px;
+  }
+  section button{
+    box-shadow: 2px 2px 2px black;
+    padding: 5px;
+    background-color: white;
+  }
+footer{
+  background-color: gray;
+  height: 50px;
+}

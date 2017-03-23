@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Contact Card</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('button').click(function () {
+          var fName = $('#fName').val();
+          var lName = $('#lName').val();
+          var des = $('#description').val();
+          var markup = "<div class='user'user-description='" + des + "'><h1>" + fName + " " + lName + "</h1><p>Click for description</p></div>"
+          $('#display-user').append(markup);
+        });
+        $(document).on('click', "button", function () {
+          $('.user').css('display', 'block');
+          $('.user').css('border', '3px solid black');
+          $('.user').css('margin-bottom', '10px');
+          $('.user').css('padding', '10px')
+        });
+        $(document).on('click', '.user', function () {
+          var description = $(this).attr('user-description');
+          console.log(description);
+          $(this).html("<p>"+ description + "</p>")
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <header>
+      <h3>The Coding Dojo Contact Page</h3>
+
+    </header>
+    <section>
+      <div id="add-user">
+        <form class="user-info" action="index.html" method="post">
+          First name: <input type="text" name="first_name" id="fName">
+        </form>
+        <form class="user-info" action="index.html" method="post">
+          Last name: <input type="text" name="last_name" id="lName">
+        </form>
+        <p>Description:</p>
+        <textarea form="user-info" name="description" id="description">Enter description:</textarea>
+        <form class="user-info" action="index.html" method="post">
+          <button type="button" name="button">Add User</button>
+        </form>
+      </div>
+      <div id="display-user">
+      </div>
+    </section>
+    <footer>
+    </footer>
+  </body>
+</html>
