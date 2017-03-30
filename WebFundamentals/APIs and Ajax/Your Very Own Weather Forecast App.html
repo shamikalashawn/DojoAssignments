@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Your Very Own Weather Forecast App</title>
+    <script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('form').submit(function () {
+          //create URL from city provided
+          var city = $('input').val();
+          var url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=1293f1bdfcfe2157393973a031f2efbc";
+
+          //retrieve weather information from API
+          $.get(url, function (res) {
+            console.log(res);
+            $('#results').html("<h1>" + res.name +"</h1><h3>Temperature: " + Math.floor(res.main.temp) + "&deg; F</h3>")
+          }, 'json');
+
+          return false;
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <form id="weather" action="index.html" method="post">
+      <input type="text" name="city" value="Enter a city">
+      <button type="submit" name="button" form="weather">Search Weather</button>
+    </form>
+    <div id="results">
+
+    </div>
+  </body>
+</html>

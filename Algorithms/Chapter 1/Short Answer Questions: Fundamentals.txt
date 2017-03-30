@@ -1,0 +1,32 @@
+Short Answer Questions: Fundamentals
+What is source code?
+	Instructions for a computer
+What makes computers so “smart”, anyway?
+	Their ability to calculate large quantities and follow lots of directions
+What is the purpose of a programming language?
+	Human readable language we can use to give instructions to computers
+What are 3 examples of programming languages? Why are there so many of these?
+	CSS, JavaScript, HTML. There are so many languages because there are so many types of instructions and computers to work with.
+What is a variable? Why are variables useful?
+	A variable is a spot in the memory that houses a piece of data. They are useful because we can refer back to this piece of data with a label.
+What is the difference between a single-equals (=) and a double-equals (==)?
+	A single-equals sets a value and a double-equals tests two values
+What is the difference between a double-equals (==) and a triple-equals (===)?
+	A double-equals changes the type of the two values before comparing them whereas the triple-equals does strict type comparison and does not change the types before comparison. 
+Why does the developer console exist?
+	To display information designated in the code as well as convey errors
+When we talk about “conditional” statements, what does that mean? What is an example?
+	A statement that evaluates to true or false such as (10%5==0)
+Why would we want FOR or WHILE loops in our source code?
+	Both allow us to DRY our code and repeat a set of instructions without having to type out those instructions each time.
+When would you use a WHILE loop, instead of a FOR loop?
+	When you do not know how many times you need to repeat code exactly but know what conditions to run the code in.
+What is a function? Why would we use functions?
+	A function is a block of code that can be run when its label is called. We use functions to avoid repeating code as well as saving us time when changes need to be made to the block of code so we only have to change it once.
+How many values can you receive back from a function? How many values can you send in?
+	You can only receive one value back from a function, but you can pass in a large number of variables.
+What is an array? How many values does it hold?
+	An array is an object that holds as many values as your memory can handle.
+What is a T-diagram and why should I know how to use one?
+
+What are the two ways to comment JS code? When would you use one versus the other?

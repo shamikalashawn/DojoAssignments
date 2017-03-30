@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Game of Thrones</title>
+    <script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('img').on('click', function () {
+          var url = "http://www.anapioficeandfire.com/api/houses?name=" + $(this).attr('alt');
+          console.log(url);
+          $.get(url, function (res) {
+            console.log('test');
+            console.log(res);
+          }, 'jsonp');
+        });
+      });
+    </script>
+    <style media="screen">
+      #houses img{
+        width: 200px;
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="houses">
+      <img src="baratheon.png" alt="House%20Baratheon%20of%20Storm%27s%20End">
+      <img src="lannister.jpg" alt="House%20Lannister%20of%20Casterly%20Rock">
+      <img src="stark.jpg" alt="House%20Stark%20of%20Winterfell">
+      <img src="targaryen.jpg" alt="House%20Targaryen%20of%20King%27s%20Landing">
+    </div>
+    <div id="house-card">
+
+    </div>
+  </body>
+</html>
