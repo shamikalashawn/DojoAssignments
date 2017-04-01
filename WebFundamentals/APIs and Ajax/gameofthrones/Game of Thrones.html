@@ -6,32 +6,60 @@
     <script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <script type="text/javascript">
       $(document).ready(function () {
-        $('img').on('click', function () {
-          var url = "http://www.anapioficeandfire.com/api/houses?name=" + $(this).attr('alt');
+        $('img').click(function () {
+          var url = "http://www.anapioficeandfire.com/api/houses/" + $(this).attr('alt');
           console.log(url);
           $.get(url, function (res) {
-            console.log('test');
             console.log(res);
-          }, 'jsonp');
+            var name = res.name;
+            var words = res.words;
+            var titles = ""
+            for (var i = 0; i < res.titles.length; i++) {
+              if (titles.length > 1){
+                if (i == res.titles.length-1){
+                  titles += res.titles[i];
+                } else if (i <= titles.length-2) {
+                  titles += res.titles[i] + ", ";
+                }
+              } else if (titles.length = 1) {
+                titles += res.titles[i];
+              }
+            }
+            $('#house-card').css('border', '2px solid black');
+            $('#house-card').css('border-top', 'none');
+            $('#house-card').html('<hr><h1>House Details</h1><h2>Name: ' + name + '</h2><h2>Words: ' + words + '</h2><h2>Titles: ' + titles + '</h2>');
+            $('h1').css('margin-top', '-30px');
+            $('h1').css('margin-left', '10px');
+            $('h2').css('margin-left', '10px');
+            $('hr').css('width', '60%');
+            $('hr').css("text-align", 'right');
+            $('hr').css('margin-right', '0');
+            $('hr').css('border-width', '1px');
+            $('hr').css('border-style', 'solid');
+          }, 'json');
+          });
         });
-      });
     </script>
     <style media="screen">
       #houses img{
         width: 200px;
         height: 150px;
       }
+      #house-card{
+        margin-top: 20px;
+        width: 500px;
+        height: 300px;
+      }
     </style>
   </head>
   <body>
     <div id="houses">
-      <img src="baratheon.png" alt="House%20Baratheon%20of%20Storm%27s%20End">
-      <img src="lannister.jpg" alt="House%20Lannister%20of%20Casterly%20Rock">
-      <img src="stark.jpg" alt="House%20Stark%20of%20Winterfell">
-      <img src="targaryen.jpg" alt="House%20Targaryen%20of%20King%27s%20Landing">
+      <img src="baratheon.png" alt="16">
+      <img src="lannister.jpg" alt="229">
+      <img src="stark.jpg" alt="362">
+      <img src="targaryen.jpg" alt="378">
     </div>
     <div id="house-card">
-
     </div>
   </body>
 </html>

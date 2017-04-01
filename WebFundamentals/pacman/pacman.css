@@ -1,0 +1,84 @@
+body {
+	background-color: black;
+	margin: 0px;
+}
+
+div.row{
+	height: 20px;
+}
+
+div.row div {
+	width: 20px;
+	height: 20px;
+	/*border: 1px solid black;*/
+	display: inline-block;
+	margin: 0px;
+}
+div.brick {
+	background-color: blue;
+}
+div.empty {
+	background-color: black;
+}
+div.cherry{
+	background: url('cherry.png');
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+div#blinky{
+	height: 20px;
+	width: 20px;
+	background: url('blinky.png');
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+div.coin {
+	background: url('coin.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+div#pacman {
+	height: 20px;
+	width: 20px;
+	background: url('pacman.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+div#pacman2 {
+	height: 20px;
+	width: 20px;
+	background: url('mspacman.gif');
+	transform: scaleX(-1);
+	filter: flipH;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+div.scoreBox {
+	margin: 20px;
+	padding: 20px;
+	height: 30px;
+	width: 200px;
+	color: #d92;
+	display: inline-block;
+}
+
+div#instructions {
+	margin: 20px;
+	padding: 20px;
+	height: 30px;
+	width: 400px;
+	color: #d92;
+}

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Rob Boss's Pacmania</title>
+		<link rel="stylesheet" href="./pacman/pacman.css" >
+		<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+		<script type="text/javascript">
+	$(document).ready(function(){
+
+		var world = [
+			[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,],
+			[2,0,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+			[2,2,1,2,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+			[2,1,1,2,1,1,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+			[2,1,2,2,2,2,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+			[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+			[2,1,1,1,2,1,2,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,],
+			[2,1,1,1,1,1,1,1,2,1,1,2,2,2,2,2,2,3,2,2,2,2,2,2,2,],
+			[2,1,1,1,1,1,2,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+			[2,1,2,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+			[2,0,1,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+			[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,]
+		];
+		function gameOver() {
+			var count = 0;
+			for (var i = 0; i < world.length; i++) {
+				for (var j	= 0; j < world[i].length; j++) {
+					if (world[i][j] === 1) {
+						count ++
+					}
+				}
+			}
+			if (count == 0) {
+				if (score > score1) {
+					alert('Game over! Pac-man won!')
+				} else{
+					alert('Game over! Ms. Pac-man won!')
+				}
+				world = [
+					[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,],
+					[2,0,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+					[2,2,1,2,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+					[2,1,1,2,1,1,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+					[2,1,2,2,2,2,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+					[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+					[2,1,1,1,2,1,2,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,],
+					[2,1,1,1,1,1,1,1,2,1,1,2,2,2,2,2,2,3,2,2,2,2,2,2,2,],
+					[2,1,1,1,1,1,2,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+					[2,1,2,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+					[2,0,1,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,],
+					[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,]
+				];
+				pacman.x = 1;
+				pacman.y = 1;
+				pacman2.x = 1;
+				pacman2.y = 10;
+				blinky.x = 10;
+				blinky.y = 10;
+				lives = 3;
+				lives1 = 3;
+				score = 0;
+				score1 = 0;
+				displayScore();
+				displayPacman();
+				displayWorld();
+				displayBlinky();
+			}
+		}
+
+		var score = 0;
+		var score1 = 0;
+		var gameActive = true;
+		var lives = 3;
+		var lives1 = 3;
+
+
+		var pacman = {
+			x: 1,
+			y: 1
+		};
+
+		var pacman2 = {
+			x: 1,
+			y: 10
+		};
+
+		function displayWorld(){
+			var output = "";
+			for (var i = 0; i < world.length; i++) {
+				output += '<div class="row">\n'
+				for (var j = 0; j < world[i].length; j++) {
+					if(world[i][j] == 2 ) {
+						output += "<div class='brick'></div>";
+					} else if(world[i][j] == 1 ) {
+						output += "<div class='coin'></div>";
+					} else if(world[i][j] == 0 ) {
+						output += "<div class='empty'></div>";
+					} else if(world[i][j] == 3 ) {
+						output += "<div class='cherry'></div>";
+					}
+					// else if(world[i][j] == 4 ) {
+					// 	output += "<div id='blinky'></div>";
+					// } old code for stationary binky
+				}
+				output += "</div>\n"
+			}
+			// console.log(output)
+			$('#gameboard').html(output);
+		}
+
+		document.onkeydown = function(e){
+			var ogx = pacman.x;
+			var ogy = pacman.y;
+
+			var ogx2 = pacman2.x;
+			var ogy2 = pacman2.y;
+			// console.log(e.keyCode)
+
+			//move pacman
+			if(e.keyCode == 37) { //left key
+					pacman.x --;
+					$('#pacman').css('transform', 'rotate(180deg)');
+			}
+			else if(e.keyCode == 38) { //up key
+					pacman.y --;
+					$('#pacman').css('transform', 'rotate(270deg)');
+			}
+			else if(e.keyCode == 39) { //right key
+					pacman.x ++;
+					$('#pacman').css('transform', 'rotate(360deg)');
+			}
+			else if(e.keyCode == 40) { //down key
+					pacman.y ++;
+					$('#pacman').css('transform', 'rotate(90deg)');
+			}
+			//collision detection
+			if (world[pacman.y][pacman.x] === 2) { //brick
+				//don't move
+				pacman.x = ogx;
+				pacman.y = ogy;
+				// console.log('hit a wall!');
+			}
+			if (pacman.y === pacman2.y && pacman.x === pacman2.x) { // other pacman
+				//don't move
+				pacman.x = ogx;
+				pacman.y = ogy;
+				// console.log('pacman you hit ms. pacman!');
+			}
+			// eating coin
+			if (world[pacman.y][pacman.x] === 1) {
+				world[pacman.y][pacman.x] = 0;
+				score += 100;
+			}
+			// eating cherry
+			if (world[pacman.y][pacman.x] === 3) {
+				world[pacman.y][pacman.x] = 0;
+				score += 50;
+			}
+			// eating ghosts
+			if (pacman.y === blinky.y && pacman.x === blinky.x) {
+				pacman.x = 1;
+				pacman.y = 1;
+				lives--;
+				alert('Oh no Pac-man! You died...');
+			}
+
+			//move pacman2
+			if(e.keyCode == 65) { //left 'a' key
+					pacman2.x --;
+					$('#pacman2').css('transform', 'rotate(360deg)');
+			}
+			else if(e.keyCode == 87) { //up 'w' key
+					pacman2.y --;
+					$('#pacman2').css('transform', 'rotate(90deg)');
+			}
+			else if(e.keyCode == 68) { //right 'd' key
+					pacman2.x ++;
+					$('#pacman2').css('transform', 'rotateY(180deg)');
+			}
+			else if(e.keyCode == 83) { //down 's' key
+					pacman2.y ++;
+					$('#pacman2').css('transform', 'rotate(270deg)');
+			}
+			//collision detection
+			if (world[pacman2.y][pacman2.x] === 2) { // brick
+				//don't move
+				pacman2.x = ogx2;
+				pacman2.y = ogy2;
+				// console.log('hit a wall!');
+			}
+			if (pacman2.y === pacman.y && pacman2.x === pacman.x) { // other pacman
+				//don't move
+				pacman2.x = ogx2;
+				pacman2.y = ogy2;
+				// console.log('ms. pacman you hit pacman!');
+			}
+			// eating coin
+			if (world[pacman2.y][pacman2.x] === 1) {
+				world[pacman2.y][pacman2.x] = 0;
+				score1 += 100;
+			}
+			// eating cherry
+			if (world[pacman2.y][pacman2.x] === 3) {
+				world[pacman2.y][pacman2.x] = 0;
+				score1 += 50;
+			}
+			// eating ghosts
+			if (pacman2.y === blinky.y && pacman2.x === blinky.x) {
+				pacman2.x = 1;
+				pacman2.y = 10;
+				lives1--;
+				alert('Oh no Ms. Pac-man! You died...');
+			}
+
+			displayScore();
+			if (gameActive) {
+				displayPacman();
+				displayWorld();
+				displayBlinky();
+				gameOver();
+			}
+		}
+
+		function displayPacman(){
+			document.getElementById('pacman').style.top = pacman.y*20+"px";
+			document.getElementById('pacman').style.left = pacman.x*20+"px";
+			document.getElementById('pacman2').style.top = pacman2.y*20+"px";
+			document.getElementById('pacman2').style.left = pacman2.x*20+"px";
+		}
+
+		function displayScore(){
+			$('#scoreText').text(score);
+			$('#livesText').text(lives);
+			$('#pacman2ScoreText').text(score1);
+			$('#pacman2LivesText').text(lives1);
+		}
+
+		var blinky = {
+			x: 10,
+			y: 10
+		}
+
+		function displayBlinky(){
+			document.getElementById('blinky').style.top = blinky.y*20+"px";
+			document.getElementById('blinky').style.left = blinky.x*20+"px";
+		}
+
+		function moveBlinky() {
+			// random number that will determine the direction blinky moves
+			var move = Math.floor(Math.random()*4 + 1);
+			setInterval(function () {
+				// check to see if in front of brick
+				if (move == 1 && (world[blinky.y][blinky.x+1] !== 2)) { // move right
+					// move and display blinky
+					blinky.x ++;
+					displayBlinky();
+					move = Math.floor(Math.random()*4 + 1);
+				} else if (move == 2 && (world[blinky.y][blinky.x-1] !== 2)) { // move left
+					blinky.x --;
+					displayBlinky();
+					move = Math.floor(Math.random()*4 + 1);
+				} else if (move == 3 && (world[blinky.y-1][blinky.x] !== 2)) { // move up
+					blinky.y --;
+					displayBlinky();
+					move = Math.floor(Math.random()*4 + 1);
+				} else if (move == 4 && (world[blinky.y+1][blinky.x] !== 2)) { // move down
+					blinky.y ++;
+					displayBlinky();
+					move = Math.floor(Math.random()*4 + 1);
+				} else{
+					move = Math.floor(Math.random()*4 + 1);
+				}
+			}, 500)
+		}
+
+		console.log('hello')
+		//check game over
+		//implement game over
+		//implement ghost
+		//high score
+		//multiplayer
+		displayBlinky();
+		moveBlinky();
+		displayWorld();
+		displayPacman();
+		displayScore();
+		setInterval(function(){
+
+		}, 750)
+
+	}); //end of document.ready
+		</script>
+	</head>
+	<body>
+		<div id="pacman"></div>
+		<div id="pacman2"></div>
+		<div id="blinky"></div>
+		<div id="gameboard"></div>
+		<div class="scoreBox">
+			<h2>Pac-man</h2>
+			<p>score: <span id="scoreText"></span></p>
+			<p>lives: <span id="livesText"></span></p>
+		</div>
+		<div class="scoreBox">
+			<h2>Ms. Pac-man</h2>
+			<p>score: <span id="pacman2ScoreText"></span></p>
+			<p>lives: <span id="pacman2LivesText"></span></p>
+		</div>
+		<div id="instructions">
+			<h2>Instructions: </h2>
+			<p>To move Pac-man, use the arrow keys. To move Ms. Pac-man, use 'w' for up, 'a' for left, 'd' for right, and 's' for down.</p>
+			<p>Eat all the coins and any fruit while avoiding all ghosts!</p>
+		</div>
+	</body>
+</html>
