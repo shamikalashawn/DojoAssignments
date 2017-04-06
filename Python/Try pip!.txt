@@ -1,0 +1,8 @@
+pip install Django - it was already installed
+pip list - list of modules and their versions 
+pip install Django (We know you already ran this one. What information do you see returned in terminal after this command?) tells you already installed and what module file path is
+pip freeze (What's the difference between freeze and list?) list outputs packages installed whereas freeze outputs packages suitable for a requirements file
+First cd into your Desktop directory (cd ~/Desktop), then run this command: pip freeze > requirements.txt. What do you see when you ls? I see the file.  What's inside this file? the list of packages and their version numbers
+pip uninstall Django uninstalls Django
+pip show Django nothing happens
+pip search Flask returns an alphabetized list of items
