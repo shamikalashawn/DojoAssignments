@@ -21,3 +21,6 @@ arr = [1,2,2,3,3,3,4,5,5,6,7,7];
 console.log(dedupe(arr));
 
 // Second: solve this without using any nested loops.
+function dedupe(arr) {
+  
+}
