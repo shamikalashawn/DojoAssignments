@@ -1,0 +1,24 @@
+What is the JavaScript Math library?  What does it contain?
+	It is a module for JavaScript that contains methods and constants that can be used in mathematical operations and calculations.  
+
+Why aren’t all those functions just included in JavaScript automatically? 
+	To save space
+
+If I call Math.random(), what will it return?
+	A random number between 0 and 1 which can theoretically be zero but cannot be 1.
+
+What do the following functions do: Math.floor, Math.ceil, Math.trunc, Math.round?
+	Math.floor rounds a real number down, Math.ceil rounds a real number up, Math.trunc removes the decimal from a number, and Math.round rounds a number to the nearest integer.
+
+When do Math.floor and Math.trunc not return the same value?
+	When the decimal number ends in a 5 digit or greater.
+
+What is the % operator? When is it useful?
+	The modulo operator returns the remainder from dividing two numbers.  It is useful for determining if a number is even (x% 2 == 0) or odd (x%2 !=0) or for getting to a specific digit in a number.
+
+How do I make variables declared outside (right next to) a function visible inside it?
+	Use the variable inside the function.
+
+Why should I comment my code? If I know what it does, isn’t commenting just a waste of time?	
+	You comment code so that it is clear what the code is doing or what your reasoning is behind certain choices for when someone else is reading your code or when you come back to old code.
+	
