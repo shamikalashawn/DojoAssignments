@@ -1,0 +1,28 @@
+What is an array?
+	A list of objects contained in square brackets that is ordered with indices and has a length.
+What types of values can be held in an array?
+	Booleans, Numbers, Lists, Objects, Strings
+What happens if you try to contain values of different data types in an array?
+	Nothing.
+What is the index of the first element in an array?
+	0.
+What is the index of the last element in an array?
+	length-1.
+If you control an array, what is the easiest way to determine the number of values?
+	length method.
+*When would the above method not work well, and what must you do in that case?
+	??
+What are two ways to make an array one element longer?
+	array[array.length] = element or array.push(element)
+What are two ways to make an array two elements shorter?
+	array.length = array.length - 2 
+	array.pop(); array.pop();
+*What is the upper limit on the number of values an array can hold?
+	It depends on the amount of memory available
+When working with arrays, does working ‘in-place’ really matter? If so, when and why?
+	Working in-place conserves memory so when that is a key factor in the program, then it should be used.
+Which values are “falsey” in JavaScript, and what does “falsey” mean anyway?
+	0, null, undefined, ‘’, false, NaN
+	Falsey means that the value evaluates to the boolean equivalent of false
+What does “passing by reference” mean?
+	When the element is passed into a function as a parameter, a pointer is used which points to the same location in memory as the element so that changes made to the copy of the element are reflected in the original element.

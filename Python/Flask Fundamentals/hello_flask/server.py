@@ -13,4 +13,9 @@ def numbers():
     for number in range(3):
         print "we're in number"
         return redirect('/')
+
+@app.route('/success')
+def success():
+    return render_template('success.html')
+
 app.run(debug=True, port=8888)

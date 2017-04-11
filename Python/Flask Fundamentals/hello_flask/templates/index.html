@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello Flask!</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my_style_sheet.css')}}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/my_script.js')}}">
+    </script>
+  </head>
+  <body>
+    <h2>{{name}} Guess What I'm Using Flask!</h2>
+    <h1>Ain't it grand!</h1>
+    {% for number in range(age) %}
+    <a href="/numbers">{{number}} | </a>
+    {% endfor %}
+  </body>
+</html>
