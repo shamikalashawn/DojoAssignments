@@ -9,7 +9,7 @@ function reverseString(str) {
   return newStr;
 }
 
-function reverseString(str) {
+function reverseString2(str) {
   var newStr = '';
 
   for (var idx = 0; idx < str.length; idx++) { //string concatenation forward
