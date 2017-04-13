@@ -1,4 +1,4 @@
-// Given a sequence of parentheses, braces, an brackets, determine whether it is valid.
+// Given a sequence of parentheses, braces, an brackets, determine whether it is valid. "W(a(t)s[o(n{ c}o)m]e )h[e{r}e]!" => true. "D(i{a}l[ t]o)n{e" => false. "A(l)s[o(n]0{t} 0}k" => false.
 
 
 
@@ -30,9 +30,9 @@ function validParens(str) {
   // return true;
 var check = [];
 for (var idx = 0; idx < str.length; idx++) {
-  if (str[i] == '(' || str[i] == '{' || str[i] == '['){
+  if (str[idx] == '(' || str[idx] == '{' || str[idx] == '['){
     check.push(str[idx])
-  } else if ((str[i] == ')' || str[i] == '}' || str[i] == ']')) {
+  } else if ((str[idx] == ')' || str[idx] == '}' || str[idx] == ']')) {
     if ((str[idx] == ')') && check[check.length-1] == '(') ||
     ((str[idx] == ']') && check[check.length-1] == '[') ||
     ((str[idx] == '}') && check[check.length-1] == '{}'){

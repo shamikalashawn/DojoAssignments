@@ -1,0 +1,48 @@
+What is a string? How is it different than an array?
+	A string is a collection of characters contained in single or double quotes.  It is different from an array because an array is enclosed in brackets and each element is separated by commas.  
+What is a data type? Is this what typeof tells us? What JavaScript data types have we learned?
+	A data type is a designation for an element that comes with a set of characteristics.  This is what typeof tells us.  We have learned Boolean, Number, String, and Object.
+What does typeof return, if given a string? What does typeof return, if given an array?
+	If given a string, typeof returns ‘string’ and if given an array returns ‘object’.
+How do you quickly determine the number of characters in a string?
+	console.log(str.length)
+Are spaces counted toward the length of a string?
+	Yes
+What are a few of the built-in (method) functions available on every string?
+	.length
+	.toUpperCase
+	.toLowerCase
+	.substring
+	.split
+Is there a built-in function to easily convert a string to an array? Show me how to do this.
+	str = ‘Test’;
+	arr1 = str.split(‘’)
+Is there a built-in function to easily convert an array to a string? Show me how to do this.
+	arr1 = [1,2,3,4,5]
+	str = arr1.join()
+Is there a built-in function to easily convert a string to a boolean? Show me how to do this.
+	Yes, but unless the string is empty, the Boolean will be true.
+	str = ‘Test’
+	Boolean(str)
+	
+Is there a built-in function to easily convert a number to a string? Show me how to do this.
+	num = 4
+	str = str(num)
+What is a switch statement, and when would you best use one?
+	A switch statement tests input and if it equals to a certain value, a specific bit of code will run.  It would be best to use one if there are multiple outcomes you anticipate for the input.
+What is a fast-finish check? Does it actually make your code faster?
+	A fast-finish check makes your code slightly faster by quickly exiting a function  if a special case is detected.
+What is an associative array? How does one differ from a traditional ‘array classic’?
+	An associative array, or hash table, or dictionary, is bracketed with curly braces and has key value pairs, is not sorted, and does not have any indices.  
+*What is a JavaScript object? Featurewise, how does it differ from an associative array?
+	A JavaScript object is a grouping of elements in key value pairs contained in curly brackets.  
+*Is an object the closest thing — in JavaScript — to an associative array? What is its data type?
+	Yes. It’s data type is object.
+What does “immutable” mean? Is a string immutable? Is an array immutable? Is an object?
+	It means that the element cannot be changed.  A string is immutable, but an array and object are not immutable.
+To manually iterate through the keys and values in an object, what type of loop do I need?
+	For loop
+Does this type of loop give you the keys, or the values?
+	The keys
+Why does the Dojo frown on the use of built-in functions, during most algorithm challenges?
+	To encourage the understanding of how those functions work under the hood and ensure that, in case the function does not work as expected or if you need to extend the function.
