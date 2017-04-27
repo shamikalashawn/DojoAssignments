@@ -1,0 +1,13 @@
+h2{
+  text-decoration: underline;
+}
+.error{
+  width: 200px;
+  height: 200px;
+  background-color: red;
+}
+#success{
+  width: 300px;
+  height: 200px;
+  background-color: green;
+}

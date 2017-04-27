@@ -8,10 +8,51 @@
     </script>
   </head>
   <body>
-    <h2>{{name}} Guess What I'm Using Flask!</h2>
+    <h2>Guess What I'm Using Flask!</h2>
     <h1>Ain't it grand!</h1>
-    {% for number in range(age) %}
-    <a href="/numbers">{{number}} | </a>
-    {% endfor %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    {% endwith %}
+    <form action="/user" method="post">
+      <input type="hidden" name="count" value="{{session['counter']}}">
+      <input type="text" name="fname" placeholder="First Name">
+      <input type="text" name="lname" placeholder="Last Name">
+      <input type="text" name="email" placeholder="Jackson@coding.com">
+      <input type="text" name="password" placeholder="password">
+      <button type="submit" name="form_submit">Submit</button>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>id</th>
+          <th>Show</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in all_users %}
+        <tr>
+          <td>{{user['first_name']}}</td>
+          <td>{{user['last_name']}}</td>
+          <td>{{user['email']}}</td>
+          <td>{{user['id']}}</td>
+          <td><a href="/user/{{user['id']}}">Show</a></td>
+          <td><form action="/user/delete/{{user['id']}}" method="get">
+            <input type="hidden" name="user_id" value="{{user['id']}}">
+            <button type="submit" name="button">Delete</button>
+          </form></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="/clear">Clear Session</a>
   </body>
 </html>
