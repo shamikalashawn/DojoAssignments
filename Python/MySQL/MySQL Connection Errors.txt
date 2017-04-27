@@ -1,0 +1,30 @@
+  File "server.py", line 3, in <module>
+    from mysqlconnection import MySQLConnector
+  File "/Users/LaShawn/Desktop/DojoAssignments/Python/Flask Fundamentals/hello_flask/mysqlconnection.py", line 11
+    'password': ,
+                ^
+SyntaxError: invalid syntax
+
+fix: enter a password
+
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1045, "Access denied for user 'root'@'localhost' (using password: NO)")
+
+fix: use ‘root’ for password
+
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' (61)")
+
+fix: use correct port from MySQL/MAMP
+
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1045, "Access denied for user 'rooot'@'localhost' (using password: YES)")
+
+fix: user is ‘root’
+
+    'database': database, # we got db as an argument
+NameError: global name 'database' is not defined
+
+fix: use passed in argument db
+
+ DATABASE_URI = "mysql://{}:{}@127.0.0.1:{}/{}".format(config['user'], config['password'], config['port'], config['database'])
+KeyError: 'user'
+
+fix: use correct key names

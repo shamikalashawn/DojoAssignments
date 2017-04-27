@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User</title>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages%}
+      {% if messages%}
+        {% for message in messages %}
+          {{message}}
+        {% endfor %}
+      {% endif %}
+    {% endwith%}
+
+    <h1>{{user['first_name']}} {{user['last_name']}}'s Page</h1>
+    <h3>{{user['email']}}</h3>
+    <h3>{{user['id']}}</h3>
+
+    <form action="/check" method="post">
+      <input type="email" name="email" value="{{user['email']}}">
+      <input type="password" name="password" value="">
+      <button type="submit">Check Password</button>
+    </form>
+
+    <a href="/user/update/{{user['id']}}">Edit</a>
+    <a href="/">Index</a>
+  </body>
+</html>

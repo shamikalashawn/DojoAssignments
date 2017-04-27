@@ -1,0 +1,7 @@
+USE 'twitter'
+SELECT * FROM tweets
+
+SELECT first_name, tweet
+FROM users
+JOIN tweets ON users.id = tweets.user_id
+

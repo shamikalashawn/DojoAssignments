@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='style.css')}}">
+  </head>
+  <body>
+    <h1>Registration Form</h1>
+  <form action="/process" method="post">
+    <label for="email">Email: </label><input id='email' type="email" name="email">
+    <label for="fname">First Name: </label> <input id="fname" type="text" name="first_name">
+    <label for="lname">Last Name: </label><input type="text" name="last_name">
+    <label for="pword">Password: </label><input id='pword' type="password" name="password" value="">
+    <label for="cpword">Confirm Password: </label><input id='cpword' type="password" name="confirm_password" value="">
+    <input type="submit" value="Submit">
+  </form>
+  {% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+    <ul class=flashes>
+      {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  {% endwith %}
+  </body>
+</html>
