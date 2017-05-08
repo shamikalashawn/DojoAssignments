@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // first in first out
+=======
+
+>>>>>>> e4de77c6658cc96ede9876b91759915171675027
 function slQueue() {
   var head = null;
   var tail = null;
@@ -67,7 +71,11 @@ function slQueue() {
     return counter;
   }
 
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> e4de77c6658cc96ede9876b91759915171675027
 
 }
 function slNode(val) {

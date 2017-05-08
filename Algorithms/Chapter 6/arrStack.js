@@ -41,6 +41,7 @@ function arrStack() {
     console.log(stack);
     return found;
   }
+<<<<<<< HEAD
 
   this.isEmpty = function () {
     if(!stack.length){
@@ -163,6 +164,8 @@ function copyStack(stack) {
     newstack.push(temp);
   }
   return newStack;
+=======
+>>>>>>> e4de77c6658cc96ede9876b91759915171675027
 }
 
 var newStack = new arrStack();
