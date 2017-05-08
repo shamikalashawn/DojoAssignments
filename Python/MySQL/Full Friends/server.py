@@ -10,7 +10,7 @@ EMAIL_REGEX = re.compile(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")
 
 @app.route('/')
 def index():
-    query_all = 'SELECT * FROM full_friends.friends'
+    query_all = 'SELECT first_name, last_name, email FROM full_friends.friends'
     all_users = mysql.query_db(query_all)
     return render_template('index.html', all_users=all_users)
 

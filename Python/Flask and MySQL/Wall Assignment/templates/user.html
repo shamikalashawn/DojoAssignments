@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Mobile First proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jQuery from Google -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>{{user['first_name']}}'s Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#edit').click(function () {
+          $('#info').html("<form action='/user/" + "{{user['id']}}" + "/edit' method='post'><div class='form_element'><label for='fname'>First Name:</label><input type='text' name='fname' placeholder='" + "{{user['first_name']}}" + "'></div><div class='form_element'><label for='lname'>Last Name:</label><input type='text' name='lname' placeholder='" + "{{user['last_name']}}" + "'></div><div class='form_element'><label for='email'>Email:</label><input type='text' name='email' placeholder='" + "{{user['email']}}" + "'><button type='submit'>Update</button></div></form>")
+        })
+        $('#delete').click(function () {
+          $('#info').html('<h2>Are you sure you want to delete this user?  If so, you will be logged out and will have to register to log in again.</h2><a href="/delete">Yes, delete me.</a><br /><a href="/user/' + "{{user['id']}}" + '">No! Do not delete me.</a>')
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="col-lg-10 col-sm-10 col-xs-8">
+          <h3>CodingDojo Wall</h3>
+        </div>
+        <div class="col-lg-2 col-sm-2 col-xs-2">
+          <p>Welcome <a href="/user/{{user['id']}}">{{user['first_name']}}</a>!</p>
+          <a href="/logoff">log off</a>
+        </div>
+      </div>
+    </nav>
+    <main class="container">
+      <section class="row">
+        <h1>{{user['first_name']}}'s Page</h1>
+
+        <h2>Name:</h2>
+        <p>{{user['first_name']}} {{user['last_name']}}</p>
+        <h2>Email:</h2>
+        <p>{{user['email']}}</p>
+
+        <div id="user_buttons">
+          <button class="btn btn-info" type="button" name="edit" id="edit">Edit</button>
+          <button class="btn btn-danger" type="button" name="delete" id="delete">Delete</button>
+          <a href="/wall">Back to the Wall</a>
+        </div>
+
+        <div id="info">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+          <ul class=flashes>
+            {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          {% endwith %}
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-
+// first in first out
 function slQueue() {
   var head = null;
   var tail = null;
@@ -67,7 +67,7 @@ function slQueue() {
     return counter;
   }
 
-  
+
 
 }
 function slNode(val) {

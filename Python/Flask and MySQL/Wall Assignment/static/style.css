@@ -1,0 +1,41 @@
+.row{
+  margin-left: 20px;
+  padding: 0px;
+}
+input{
+  display: block;
+}
+#post_message_button{
+display: block;
+margin-left: 400px;
+}
+#post_comment_button{
+display: block;
+margin-left: 400px;
+}
+header h3, p, form{
+  display: inline-block;
+  text-align: left;
+}
+header p{
+  margin-left: 400px;
+}
+.error{
+  color: red;
+}
+div p{
+  display: block;
+}
+#comments_section{
+  margin-left: 25px;
+}
+/* user.html styling */
+.form_element{
+  display: block;
+}
+#user_buttons{
+  display: block;
+}
+#info{
+  margin-top: 10px;
+}
