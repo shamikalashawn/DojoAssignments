@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>About Me</title>
+    <!-- jQuery from Google -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Real_Portfolio_App/css/style.css' %}">
+  </head>
+  <body>
+    <h1>About Me!</h1>
+    <p>I was born and raised the oldest of four children in San Antonio, TX.  Besides remembering the Alamo, I spent a lot of time as a kid reading and going to engineering and math camps.  I made my first website in the 10th grade and learned basic html in one sitting.  That (albiet dated) website can be perused <a href="http://www.angelfire.com/journal2/shaquanisha/mathcamp_home_page.html">here</a>. I studied African and African American Studies at Stanford University and was the first in my family to graduate high school and college.  I went on to grad school at a seminary to explore what social justice looked like in the digital space.  My senior thesis is housed <a href="https://academiccommons.columbia.edu/catalog/ac:185671">here</a>. Now that I have looked at technology and ethics as well as the black experience academically, I want to make a positive impact on the tech industry!  If you know of ways to help me do that, please contact me <a href="mailto:shamika@techchaplain.com">via email here</a>!</p>
+    <form action="/" method="post">
+      {% csrf_token %}
+      <button type="submit" name="button" class="btn btn-primary">Home</button>
+    </form>
+  </body>
+</html>

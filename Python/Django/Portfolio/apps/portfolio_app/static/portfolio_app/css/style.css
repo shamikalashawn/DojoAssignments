@@ -1,0 +1,10 @@
+h1{
+  text-align: center;
+}
+p{
+  margin-left: 30px;
+}
+p:last-child{
+  margin-right: 20px;
+  text-align: right;
+}

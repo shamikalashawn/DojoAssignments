@@ -1,0 +1,18 @@
+div{
+  text-align: center;
+  margin: 0 auto 0 auto;
+  width: 400px;
+  height: 100px;
+  border: 2px solid black;
+}
+h3{
+  margin-top: 100px;
+  margin-left: 50px;
+  text-align: center;
+}
+form{
+  text-align: center;
+}
+button{
+  box-shadow: 2px 2px 2px black;
+}

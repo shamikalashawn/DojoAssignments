@@ -11,3 +11,4 @@ class MathDojo(object):
         return self
 
 md = MathDojo().add(2).add(2,5).subtract(3,2).result
+print md.result

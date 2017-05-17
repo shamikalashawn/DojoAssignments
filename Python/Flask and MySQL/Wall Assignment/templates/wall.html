@@ -62,7 +62,7 @@
           <p>{{message['message']}}</p>
         </div>
 
-        <div id="comments_section">
+        <div class="comments_section">
           {% for comment in comments %}
           {% if comment['message_id'] == message['id'] %}
           <h4>{{comment['name']}} - {{comment['timestamp']}}</h4>

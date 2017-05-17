@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello Django</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'hello/css/materialize.css'%}">
+  </head>
+  <body>
+    <main class="container">
+      <h1>Hello Django</h1>
+      <section class="row section">
+        {{request.session.name}}
+        <form class="col s6 offset-s3" action="/new_user" method="post">
+          {% csrf_token %}
+          <input type="text" name="fname" placeholder="First Name">
+          <input type="text" name="lname" placeholder="Last Name">
+          <input type="email" name="email" placeholder="jack@coding.com">
+          <button type="submit" name="form_submit">Submit</button>
+        </form>
+      </section>
+      <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>ID</th>
+            <th>Show</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if users %}
+          {% for user in users %}
+          <tr>
+            <td>{{user.first_name}}</td>
+            <td>{{user.last_name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.id}}</td>
+            <td><a href="/user/{{user.id}}">Show</a></td>
+          </tr>
+          {% endfor %}
+          {% endif %}
+        </tbody>
+      </table>
+      <a href="/clear">Clear</a>
+    </main>
+  </body>
+</html>

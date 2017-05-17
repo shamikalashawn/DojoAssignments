@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Time Display</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'timedisplay/css/style.css' %}">
+  </head>
+  <body>
+    <h2>The current time and date:</h2>
+    <h1>{{request.session.date}}</h1>
+    <h1>{{request.session.time}}</h1>
+  </body>
+</html>
