@@ -8,7 +8,13 @@
   </head>
   <body>
     <main class="container">
-      <h1>Hello Django</h1>
+      <h1>Hello {% if "user" in request.session %} {{request.session.user.first_name}} {{request.session.user.last_name}}
+      {% else %} Django {% endif %}</h1>
+      {% if messages %}
+        {% for message in messages %}
+          <p class="error">{{message}}</p>
+        {% endfor %}
+      {% endif %}
       <section class="row section">
         {{request.session.name}}
         <form class="col s6 offset-s3" action="/new_user" method="post">

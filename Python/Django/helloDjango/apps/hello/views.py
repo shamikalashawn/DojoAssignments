@@ -1,75 +1,47 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from django.contrib import messages
 from django.shortcuts import render, HttpResponse, redirect
 from .models import UserDB
 
-users = [
-    {
-      "id":1,
-      'first_name': 'Bilbo',
-      'last_name': 'Baggins',
-      'email': 'bbaggins@coding.com',
-    },
-    {
-      "id":2,
-      'first_name': 'Jack',
-      'last_name': 'Sparrow',
-      'email': 'jsparrow@coding.com',
-    },
-    {
-      "id":3,
-      'first_name': 'Minnie',
-      'last_name': 'Mouse',
-      'email': 'mmouse@coding.com',
-    },
-]
 
 def index(request):
-    print "&" *  50
-    if 'users' in request.session:
-        for user in request.session['users']:
-            print user
     context = {
-        'users': users
+        'users': UserDB.objects.all(),
     }
     return render(request, "hello/index.html", context)
 
 def show(request, id):
     context = {
-        'user': None
+        'user': UserDB.objects.get(id=id)
     }
-    for user in users:
-        if str(user['id']) == id:
-            context['user'] = user
+    print context['user'].first_name
     return render(request, 'hello/user.html', context)
 
 def new(request):
-    if 'users' in request.session:
-        request.session['users'].append(
-            {
-                'first_name': request.POST['fname'],
-                'last_name': request.POST['lname'],
-                'email': request.POST['email'],
+    if request.method == "POST":
+        response = UserDB.objects.check_create(request.POST)
+        if not response[0]:
+            for error in response[1]:
+                messages.error(request, error[1])
+        else:
+            request.session['user'] = {
+                "first_name": response[1].first_name,
+                "last_name": response[1].last_name,
             }
-        )
-        request.session.modified = True
-    else:
-        request.session['users'] = [{
-            'first_name': request.POST['fname'],
-            'last_name': request.POST['lname'],
-            'email': request.POST['email'],
-        }]
+            print request.session['user']
+
     return redirect('hello:index')
 
-def create(request):
-    if request.method == 'POST':
-        print '*' * 50
-        print request.POST
-        request.session['name'] = request.POST['first_name']
-        print '*' * 50
-        return redirect('/')
-    else:
-        return redirect('/')
+# def create(request):
+#     if request.method == 'POST':
+#         print '*' * 50
+#         print request.POST
+#         request.session['name'] = request.POST['fname']
+#         print '*' * 50
+#         return redirect('/')
+#     else:
+#         return redirect('/')
 
 def clear(request):
     request.session.clear()
