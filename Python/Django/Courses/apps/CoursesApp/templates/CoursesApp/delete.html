@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Delete</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CoursesApp/css/style.css' %}">
+  </head>
+  <body>
+    <h2>Are you sure you want to delete the following course?</h2>
+    <p>Name: {{course.name}}</p>
+    <p>Description: {{course.description}}</p>
+    <a href="/"><button id="no_button" type="button">No</button></a>
+    <a href="/delete/{{course.id}}"><button id="yes_button" type="button">Yes! I want to delete this</button></a>
+  </body>
+</html>

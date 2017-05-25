@@ -1,0 +1,24 @@
+th{
+  background-color: gray;
+  border: 2px solid gray;
+}
+tr:nth-child(even){
+  background-color: light_blue;
+}
+#add_button{
+  background-color: green;
+  color: white;
+  margin-left: 465px;
+}
+.errors{
+  color: red;
+}
+#no_button{
+  background-color: gray;
+  box-shadow: 2px 2px 2px black;
+}
+#yes_button{
+  background-color: red;
+  color: white;
+  box-shadow: 2px 2px 2px black;
+}

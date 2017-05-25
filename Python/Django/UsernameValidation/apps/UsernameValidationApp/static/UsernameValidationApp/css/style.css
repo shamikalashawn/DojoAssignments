@@ -1,0 +1,14 @@
+#error{
+  color: white;
+  background-color: red;
+  border: 2px solid black;
+  width: 500px;
+}
+#success{
+  color: white;
+  background-color: green;
+  border: 2px solid black;
+}
+h3{
+  text-decoration: underline;
+}

@@ -46,6 +46,9 @@
         </div>
       </section>
       <section class="row">
+        <h1>Successful {{request.session.attempt}} {{request.session.user.first_name}}! </h1>
+      </section>
+      <section class="row">
         <h2>Post a message</h2>
         <form action="/message" method="post">
           {% csrf_token %}

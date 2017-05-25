@@ -10,3 +10,4 @@ Question | Expected Output
 6. Find all teams with a (current) player named "Sophia" | Mexico City Cave Spiders, Houston Hornets, Wisconsin Devils
 7. Find all leagues with a (current) player named "Sophia" | International Collegiate Baseball Conference, Atlantic Federation of Basketball Athletics, Atlantic Amateur Field Hockey League
 8. Find everyone with the last name "Flores" who DOESN'T (currently) play for the Washington Roughriders | Michael Flores, Alexander Flores, Nathan Flores
+ 

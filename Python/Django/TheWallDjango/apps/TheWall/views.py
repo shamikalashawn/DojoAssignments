@@ -20,6 +20,7 @@ def register(request):
                 "last_name": response[1].last_name,
                 "id": response[1].id,
             }
+            request.session['attempt'] = 'registration'
         return redirect('/wall')
 
 def login(request):
@@ -36,6 +37,7 @@ def login(request):
                 "id": response[1].id,
             }
             print 'logged in!', request.session['user']['id']
+            request.session['attempt'] = 'log in'
         return redirect('/wall')
 
 def wall(request):

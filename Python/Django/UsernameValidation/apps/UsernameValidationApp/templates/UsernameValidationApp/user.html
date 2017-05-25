@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Username</title>
+  </head>
+  <body>
+    <div id="success">
+      <h2>The username you entered {{request.session.username}} is valid. Thank you!</h2>
+    </div>
+    <h3>Usernames entered: </h3>
+    <table>
+      <tbody>
+        {% for username in all_usernames %}
+        <tr>
+          <td>{{username.username}}</td>
+          <td>{{username.created_at}}</td>
+          <td><a href="/delete/{{username.id}}">delete</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="/">Back</a>
+  </body>
+</html>
