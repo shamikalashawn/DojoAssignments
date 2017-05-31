@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Shamika Goddard">
+    <title></title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'gallery/css/style.css' %}">
+  </head>
+  <body>
+    <nav class='purple'>
+      <ul class="right">
+        <li><a href="{% url 'logreg:logout' %}">Logout</a></li>
+        <li><a href="{% url 'gallery:showone' request.session.user.id %}">My Pictures</a></li>
+        <li><a href="{% url 'folio:home' %}">Portfolio</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <div class="row section">
+        <form action="{% url 'gallery:index' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+            {{picForm}}
+            <button class="btn waves-effect waves-light" type="submit" name="action">Add Picture</button>
+        </form>
+      </div>
+      <div class="row section" id="gallery">
+        {% for picture in pictures %}
+        <div class="col s2">
+          <a href="{% url 'gallery:likes' picture.id %}"><img src="{{MEDIA_URL}}{{picture.image}}" alt="picture {{picture.id}}"></a>
+          <p>Added By: <a href="{% url 'gallery:showone' picture.fk_creator.id %}">{{picture.fk_creator.first_name}}</a></p>
+          <p>Likes: {{picture.likes}}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

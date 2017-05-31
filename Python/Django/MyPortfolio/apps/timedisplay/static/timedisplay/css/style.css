@@ -1,0 +1,17 @@
+h1, h2{
+  text-align: center;
+}
+div{
+  width: 100%;
+}
+a{
+  border: 2px solid black;
+  background-color: blue;
+  border-radius: 25px;
+  color: white;
+  text-decoration: none;
+  font-size: 2em;
+  display: block;
+  width: 25%;
+  margin: 0 auto;
+}

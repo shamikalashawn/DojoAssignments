@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Book and Review</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'reviewer/css/style.css' %}">
+  </head>
+  <body>
+    <nav>
+      <div>
+        <a href="{% url 'reviewer:home' %}">Home</a>
+        <a href="{% url 'logreg:logout' %}">Logout</a>
+      </div>
+    </nav>
+    <h3>Add a New Book Title and a Review: </h3>
+    {% if messages %}
+    {% for message in messages %}
+    <p class='error'>{{message}}</p>
+    {% endfor%}
+    {% endif %}
+    <form action="{% url 'reviewer:add_book_review' %}" method="post">
+        {% csrf_token %}
+        <div class="form_input">
+          <p class="label">Book Title: </p>
+          <input type="text" name="title">
+        </div>
+        <div>
+          <p class="label">Author:</p>
+          <div class="form_input">
+            <p>Choose from the list </p>
+            <select name="author">
+              <option value="Margaret Atwood">Margaret Atwood</option>
+              <option value="Toni Morrison">Toni Morrison</option>
+              <option value="J.K. Rowling">J.K. Rowling</option>
+              <option value="Alice Walker">Alice Walker</option>
+              <option value="Chimamanda Ngozi Adichie">Chimamanda Ngozi Adichie</option>
+              <option value="Maya Angelou">Maya Angelou</option>
+              <option value="Jhumpa Lahiri">Jhumpa Lahiri</option>
+              <option value="Ursula K. Le Guin">Ursula K. Le Guin</option>
+              <option value="Zora Neale Hurston">Zora Neale Hurston</option>
+              <option value="Amy Tan">Amy Tan</option>
+            </select>
+          </div>
+          <div class="form_input">
+            <p>Or add a new author: </p>
+            <input type="text" name="new_author">
+          </div>
+        </div>
+        <div class="form_input">
+          <p class="label">Review:</p>
+          <textarea name="review" rows="8" cols="80"></textarea>
+        </div>
+        <div>
+          </div>
+          <div class="form_input">
+            <p class="label">Rating:
+              <input type="number" min='1' max='5' step='1' name="rating" value="3" size='6'> stars. </p>
+              <button type="submit" name="add_book_and_review_button">Add Book and Review</button>
+            </div>
+        </div>
+    </form>
+  </body>
+</html>

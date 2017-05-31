@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.contrib import messages
+from django.db.models import Count
 from django.shortcuts import render, redirect
-from .models import userDB, secretDB
+from .models import userDB, secretDB, likeDB
 
 def index(request):
     return render(request, 'Secrets/index.html')
@@ -23,28 +24,19 @@ def log_reg(request):
                 "last_name": response[1].last_name,
                 "id": response[1].id,
             }
-            request.session['like'] = []
         return redirect('/secrets')
 
 def secrets(request):
-    secret_count = secretDB.objects.count()
-    last_secret = secretDB.objects.last()
-    highest_id = last_secret.id
-    recent = highest_id-10
-    if secret_count > 10:
-        print 'greater!'
-        context = {
-            "secrets": secretDB.objects.filter(id__gt=recent)
-        }
-    else:
-        context = {
-            "secrets": secretDB.objects.all()
-        }
+    context = {
+        "secrets": secretDB.objects.all().order_by('created_at')[:10],
+        'userObj': userDB.objects.get(id=request.session['user']['id'])
+    }
+    print context['userObj']
     return render(request, 'Secrets/secrets.html', context)
 
 def post_secret(request):
     if request.method == "POST":
-        response = secretDB.objects.check_secret(request.POST)
+        response = secretDB.objects.check_secret(request.POST, request.session['user']['id'])
         if not response[0]:
             for error in response[1]:
                 messages.error(request, error[1])
@@ -52,15 +44,16 @@ def post_secret(request):
 
 def like(request, id):
     secret = secretDB.objects.get(id=id)
-    secret.likes += 1
-    secret.save()
-    request.session['like'].append(int(id))
-    request.session.modified = True
+    author = userDB.objects.get(id=request.session['user']['id'])
+    newLike = likeDB.objects.create(user_like=author, secret_like=secret)
     return redirect('/secrets')
 
-def delete(request, id):
+def delete(request, page, id):
     secretDB.objects.get(id=id).delete()
-    return redirect('/secrets')
+    if page == 'secrets':
+        return redirect('/secrets')
+    elif page == "popular":
+        return redirect('/popular')
 
 def logoff(request):
     request.session.clear()
@@ -68,7 +61,8 @@ def logoff(request):
 
 def popular(request):
     context = {
-        "secrets": secretDB.objects.all().order_by('-likes')
+        "secrets": secretDB.objects.annotate(num_likes=Count("like_secret")).order_by('-num_likes'),
+        'userObj': userDB.objects.get(id=request.session['user']['id'])
     }
     return render(request, 'Secrets/popular.html', context)
 # Create your views here.

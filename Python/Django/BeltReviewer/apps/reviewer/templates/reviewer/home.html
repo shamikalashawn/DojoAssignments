@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load mathfilters %}
+    <meta charset="utf-8">
+    <title>Books Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'reviewer/css/style.css' %}">
+  </head>
+  <body>
+    <nav>
+      <h2>Welcome, {{request.session.user.alias}}</h2>
+      <div>
+        <a href="{% url 'reviewer:books_add' %}">Add Book and Review</a>
+        <a href="{% url 'logreg:logout' %}">Logout</a>
+      </div>
+    </nav>
+    <div id="recent_reviews">
+      <h3>Recent Book Reviews</h3>
+      {% if reviews %}
+        {% for review in reviews %}
+        <div class="review">
+          <a href="/books/{{review.book.id}}">{{review.book.title}}</a>
+          <div class="review_info">
+            <p>Rating:
+              {% for star in review.rating_list_yellow %}
+              <img src="{% static 'reviewer/img/yellow_star.png' %}" alt="">
+              {% endfor %}
+              {% for star in review.rating_list_white %}
+              <img src="{% static 'reviewer/img/white_star.png' %}" alt="">
+              {% endfor %}
+            </p>
+            <p><a href="{% url 'reviewer:show_user' request.session.user.id %}">{{request.session.user.alias}}</a> says: <span style="font-style:italic">{{review.review}}</span></p>
+            <p> Posted on {{review.created_at}}</p>
+          </div>
+        </div>
+          {% endfor %}
+          {% endif %}
+    </div>
+    <div id="other_books">
+      <h3>Other Books with Reviews</h3>
+      {% if books %}
+      <div id="books_w_reviews">
+        <ul>
+          {% for book in books %}
+            <li><a href="{% url 'reviewer:show_book' book.id %}">{{book.title}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

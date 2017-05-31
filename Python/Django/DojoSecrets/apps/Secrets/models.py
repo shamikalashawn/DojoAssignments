@@ -49,16 +49,16 @@ class userDBManager(models.Manager):
                 return [True, user]
 
 class secretDBManager(models.Manager):
-    def check_secret(self, data):
+    def check_secret(self, data, id):
         errors = []
         if len(data['secret']) < 1:
             errors.append(['secret', 'Secret must be entered.'])
         if errors:
             return [False, errors]
         else:
-            secretAuthor = userDB.objects.get(id=data['author_id'])
+            secretAuthor = userDB.objects.get(id=id)
             newSecret = secretDB.objects.create(secret=data['secret'], author=secretAuthor)
-            return [True, newSecret]
+            return [True]
 
 
 class userDB(models.Model):
@@ -74,10 +74,17 @@ class userDB(models.Model):
 
 class secretDB(models.Model):
     secret = models.TextField()
-    likes = models.IntegerField(default=0)
     author = models.ForeignKey(userDB)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
+    def get_like_users(self):
+        return userDB.objects.filter(like_user__secret_like=self)
     objects = secretDBManager()
+
+class likeDB(models.Model):
+    user_like = models.ForeignKey(userDB, related_name="like_user")
+    secret_like = models.ForeignKey(secretDB, related_name="like_secret")
+
+    # add objects manager
+
 # Create your models here.

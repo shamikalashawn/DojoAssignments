@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login and Registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'reviewer/css/style.css' %}">
+  </head>
+  <body>
+    <main>
+      <h1>Welcome to The Reviewer!</h1>
+      {% if messages %}
+      {% for message in messages %}
+      <p class='error'>{{message}}</p>
+      {% endfor%}
+      {% endif %}
+      <section>
+        <form action="{% url 'logreg:register' %}" method="post">
+          {% csrf_token %}
+          <input type="text" name="name" placeholder="Name">
+          <input type="text" name="alias" placeholder="Alias">
+          <input type="email" name="email" placeholder="Something@thisplace.com">
+          <input type="password" name="password" placeholder="Password ********">
+          <input type="password" name="password_confirmation" placeholder="Confirm Password">
+          <button type="submit" name="attempt" value="register">Register</button>
+        </form>
+      </section>
+      <section>
+        <form action="{% url 'logreg:login' %}" method="post">
+          {% csrf_token %}
+          <input type="email" name="email" placeholder="Something@thisplace.com">
+          <input type="password" name="password" placeholder="Password ********">
+          <button type="submit" name="attempt" value="login" class='btn'>Login</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
