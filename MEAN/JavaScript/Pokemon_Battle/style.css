@@ -1,0 +1,10 @@
+#player1, #player2 {
+  display: inline-block;
+  margin-left: 30px;
+}
+#player2{
+  vertical-align: top;
+}
+#again{
+  display: none;
+}

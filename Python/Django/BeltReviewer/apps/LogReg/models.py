@@ -7,6 +7,7 @@ from ..reviewer.models import Review, Book
 
 EMAILREG = re.compile(r'[a-zA-Z0-9.-_+]+@[a-zA-Z0-9.-_]+\.[a-zA-Z]*$')
 
+#regex for name that has spaces in it
 NAMEREG = re.compile(r'^[a-zA-Z.-]+( [a-zA-Z.-]+)*$')
 
 class userDBManager(models.Manager):

@@ -5,6 +5,9 @@ import bcrypt, re
 
 EMAILREG = re.compile(r'[a-zA-Z0-9.-_+]+@[a-zA-Z0-9.-_]+\.[a-zA-Z]*$')
 
+#regex for name that has spaces in it
+FULLNAMEREG = re.compile(r'^[a-zA-Z.-]+( [a-zA-Z.-]+)*$')
+
 NAMEREG = re.compile(r'^[a-zA-Z.-]*$')
 
 class userDBManager(models.Manager):
@@ -44,8 +47,10 @@ class userDBManager(models.Manager):
         if errors:
             return [False, errors]
         else:
-            check_user = userDB.objects.filter(email=data['email'], password=data['password'])
+            check_user = userDB.objects.filter(email=data['email'])
             if not check_user:
+                errors.append(['login', "Email or password not correct.  Please try again."])
+            if not bcrypt.checkpw(data['password'].encode(), check_user[0].password.encode()):
                 errors.append(['login', "Email or password not correct.  Please try again."])
             if errors:
                 return [False, errors]

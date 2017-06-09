@@ -42,11 +42,14 @@ def post_secret(request):
                 messages.error(request, error[1])
     return redirect('/secrets')
 
-def like(request, id):
+def like(request, page, id):
     secret = secretDB.objects.get(id=id)
     author = userDB.objects.get(id=request.session['user']['id'])
     newLike = likeDB.objects.create(user_like=author, secret_like=secret)
-    return redirect('/secrets')
+    if page == 'secrets':
+        return redirect('/secrets')
+    elif page == "popular":
+        return redirect('/popular')
 
 def delete(request, page, id):
     secretDB.objects.get(id=id).delete()

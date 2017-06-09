@@ -77,14 +77,21 @@ class secretDB(models.Model):
     author = models.ForeignKey(userDB)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
     def get_like_users(self):
         return userDB.objects.filter(like_user__secret_like=self)
+
+    def like_count(self):
+        print 'you are counting likes!'
+        return likeDB.objects.filter(secret_like=self).count()
+
     objects = secretDBManager()
 
 class likeDB(models.Model):
     user_like = models.ForeignKey(userDB, related_name="like_user")
     secret_like = models.ForeignKey(secretDB, related_name="like_secret")
-
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     # add objects manager
 
 # Create your models here.
