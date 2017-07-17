@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hunting GitHub</title>
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        const gitname = new Promise((resolve, reject) => {
+          $.get('https://api.github.com/users/shamikalashawn', resolve)
+        });
+        gitname.then((data) => {
+            $('button').on('click', function () {
+              document.getElementById('info').innerHTML += `<p> ${data.name}</p>`
+            });
+            return gitname;
+          });
+          gitname.catch((error) => {
+            console.log(error.message);
+          });
+      });
+    </script>
+    <!-- <script type="text/javascript">
+      $(document).ready(function () {
+      function () {
+        $('button').on('click', function () {
+          $.get("https://api.github.com/users/shamikalashawn", displayName);
+        });
+
+      }
+        function displayName(data) {
+          console.log(data);
+          if(data.name){
+            document.getElementById('info').innerHTML += `<p>   ${data.name}</p>`
+          }
+        }
+      });
+    </script> -->
+  </head>
+  <body>
+    <button type="button" name="button">Git a Name</button>
+    <div id="info">
+
+    </div>
+  </body>
+</html>

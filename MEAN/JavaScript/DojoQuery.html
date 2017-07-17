@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DojoQuery</title>
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var $Dojo = (function () {
+          console.log('immediate function');
+          return function (id) {
+            this.myid = document.getElementById(id);
+            this.click = function (eventHandler) {
+              this.myid.addEventListener('click', eventHandler);
+              return this;
+            };
+            this.hover = function (eventHandler1, eventHandler2) {
+              this.myid.addEventListener('mouseenter', eventHandler1);
+              this.myid.addEventListener('mouseleave', eventHandler2);
+              return this;
+            }
+            return this;
+          }
+        }());
+        console.log($Dojo);
+        $Dojo('click').click(function () {
+          console.log('Ouch!');
+        })
+        $Dojo('click').hover(function () {
+          console.log('wax on');
+        }, function () {
+          console.log('wax off');
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <button type="button" id="click" name="button">Click Me</button>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Owl City</title>
+  </head>
+  <body>
+    <h1>Welcome to Owl City</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Wizard</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const owl of owls) { %>
+          <tr>
+            <td><a href="/owls/<%=owl.id%>"><%=owl.name%></a></td>
+            <td><%=owl.age%></td>
+            <td><%=owl.wizard%></td>
+            <td><button type="button" name="button"><a href="/owls/edit/<%=owl.id%>">edit</a></button> <form  action="/owls/destroy/<%=owl.id%>" method="post">
+              <button type="submit" name="button">delete</button>
+            </form></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <a href="/owls/new">Add a new owl</a>
+  </body>
+</html>

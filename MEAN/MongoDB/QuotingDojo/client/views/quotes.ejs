@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quoting Dojo</title>
+  </head>
+  <body>
+    <h2>Here are the awesome quotes!</h2>
+    <% for (const quote of quotes){ %>
+      <p>"<%= quote.quote %>"</p>
+      <p class="info">- <%= quote.author %> at <%= moment(quote.createdAt).format('hh:mm a MM-DD-YYYY') %></p>
+      <p><a href="/likes/<%=quote.id%>"><%= quote.likes%> Likes</a></p>
+      <hr>
+    <%}%>
+    <a href="/">Home</a>
+  </body>
+</html>

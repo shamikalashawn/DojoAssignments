@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Owl City</title>
+  </head>
+  <body>
+    <h1>Edit <%=owl.name%>!</h1>
+    <form action="/owls/<%=owl.id%>" method="post">
+      <div>
+        <h3>Name: </h3>
+        <input type="text" name="name" placeholder="<%=owl.name%>" value="<%=owl.name%>">
+      </div>
+      <div>
+        <h3>Age: </h3>
+        <input type="text" name="age" placeholder="<%=owl.age%>"value="<%=owl.age%>">
+      </div>
+      <div>
+        <h3>Wizard: </h3>
+        <input type="text" name="wizard" placeholder="<%=owl.wizard%>" value="<%=owl.wizard%>">
+      </div>
+      <button type="submit" name="button">Update <%=owl.name%> Please!</button>
+    </form>
+  </body>
+</html>

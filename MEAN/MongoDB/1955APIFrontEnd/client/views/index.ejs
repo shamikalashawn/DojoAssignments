@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $.ajax({url: 'http://localhost:8000'}).done( function (res) {
+          console.log('results: ', res);
+          for(const person of res){
+            $('#people').append(`${person.name} `)
+          }
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+          alert("AJAX call failed: " + textStatus + ", " + errorThrown);
+        });
+      });
+    </script>
+    <meta charset="utf-8">
+    <title>1955 API</title>
+  </head>
+  <body>
+    <h1>These are the people born in 1955 according to the 1955 API!</h1>
+    <div id="people">
+
+    </div>
+  </body>
+</html>

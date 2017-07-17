@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Group Chat</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var name = prompt('Please enter your name to chat: ');
+        var socket = io.connect();
+        socket.emit('got_new_user', {name: name});
+        socket.on('existing_user', function (data) {
+          var name = prompt(`${data.error}`);
+          socket.emit('got_new_user', {name: name});
+        });
+        socket.on('update_user', function (data) {
+          $('#group_chat').append(`<p>${data.name} entered group chat.</p>`)
+        });
+        $('#form').submit(function () {
+          socket.emit('form_post', {name: name, user_chat: $('#user_chat').val()});
+          $('#user_chat').val('');
+          return false;
+        });
+        socket.on('load_messages', function (data) {
+          for (var idx in data.messages) {
+            if (data.messages[idx].name) {
+              $('#group_chat').append(`<p>${data.messages[idx].name} says: ${data.messages[idx].user_chat}</p>`);
+            } else{
+              $('#group_chat').append(`<p>${data.messages[idx].user_chat}</p>`);
+            }
+          }
+        });
+        socket.on('new_message', function (data) {
+          if(data.current_user){
+            $('#group_chat').append(`<p>${data.current_user} says: ${data.message} </p>`);
+          } else{
+            $('#group_chat').append(`<p>${data.message.user_chat}</p>`)
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h2>Conversation Board</h2>
+    <div id="group_chat">
+
+    </div>
+    <form id='form' method="post">
+      <input type="text" id="user_chat" placeholder="enter your message here">
+      <button type="submit" name="button">Send</button>
+    </form>
+  </body>
+</html>

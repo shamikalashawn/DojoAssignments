@@ -1,3 +1,4 @@
+"use strict"
 $(document).ready(function () {
   var game = {
     players: [],
@@ -23,7 +24,7 @@ $(document).ready(function () {
     };
     return player;
   };
-  function createCard() {
+  var createCard = (callback) => {
     var card = {};
     var ranNum = Math.floor(Math.random()*151+1)
     var url = "http://pokeapi.co/api/v2/pokemon/" + ranNum;
@@ -34,9 +35,9 @@ $(document).ready(function () {
       card.attack = result.stats[4].base_stat;
       card.defense = result.stats[3].base_stat;
       card.hp = result.stats[5].base_stat;
+      callback(card);
     }
   });
-  return card;
   };
 
   //game div
@@ -58,34 +59,33 @@ $(document).ready(function () {
   var p2card;
   var p1card;
   p1add.addEventListener('click', function () {
-    p1card = createCard();
-    setTimeout(function () {
+    createCard(function (p1card){
       player1.addCard(p1card);
       //put img into player div
       p1div.innerHTML += "<img src='" + p1card.image + "' alt='player 1 pokemon'>";
       //put pokestats into player div
       p1div.innerHTML += "<h3>Name: " + p1card.name + "</h3><h3>Attack: " + p1card.attack + "</h3><h3>Defense: " + p1card.defense + "</h3><h3>Hp: " + p1card.hp + "</h3>"
-    }, 2000);
-    return p1card;
+    });
   });
 
   p2add.addEventListener('click', function () {
-    p2card = createCard();
-    setTimeout(function () {
+    createCard(function (p2card) {
       player2.addCard(p2card);
       //put img into player div
       p2div.innerHTML += "<img src='" + p2card.image + "' alt='player 2 pokemon'>";
       //put pokestats into player div
       p2div.innerHTML += "<h3>Name: " + p2card.name + "</h3><h3>Attack: " + p2card.attack + "</h3><h3>Defense: " + p2card.defense + "</h3><h3>Hp: " + p2card.hp + "</h3>"
-    }, 2000);
-    return p2card;
+    });
   });
 
   //play again button clears the cards from the player divs
   var again = document.getElementById('again');
+  again.hidden = true;
   again.addEventListener('click', function () {
     p1div.innerHTML = "<h1>Player 1: " + player1.name + "</h1>"
     p2div.innerHTML = "<h1>Player 2: " + player2.name + "</h1>"
+    gamediv.innerHTML = "<p></p>";
+    again.hidden = true;
   })
 
   //fight buttons
@@ -95,7 +95,7 @@ $(document).ready(function () {
   var p2attack;
 
   p1fight.addEventListener('click', function () {
-    console.log('player 1 fights player 2');
+    gamediv.innerHTML = '<p>player 1 fights player 2</p>';
     p2card = player2.hand[0]; //value needs to increase by one when play again button is clicked
     p1card = player1.hand[0];
     if (p2card.defense > p1card.attack) {
@@ -107,7 +107,7 @@ $(document).ready(function () {
       if (p2card.hp < p1attack) {
         p2card.hp = 0;
         gamediv.innerHTML = "<p>Player 1, " + player1.name + " wins!</p>"
-        again.style.display = 'initial';
+        again.hidden = false;
       }
       if (p2card.hp > p1attack){
         p2card.hp = p2card.hp - p1attack;
@@ -118,7 +118,7 @@ $(document).ready(function () {
 
 
   p2fight.addEventListener('click', function () {
-    console.log('player 2 fights player 1');
+    gamediv.innerHTML = '<p>player 2 fights player 1</p>';
     p2card = player2.hand[0];
     p1card = player1.hand[0];
     if (p1card.defense > p2card.attack) {
@@ -130,7 +130,7 @@ $(document).ready(function () {
       if (p1card.hp < p2attack) {
         p1card.hp = 0;
         gamediv.innerHTML = "<p>Player 2, " + player2.name + " wins!</p>"
-        again.style.display = 'initial';
+        again.hidden = false;
       }
       if (p1card.hp > p2attack){
         p1card.hp = p1card.hp - p2attack;
