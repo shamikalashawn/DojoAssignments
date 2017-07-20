@@ -1,0 +1,17 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  today = new Date();
+  lastTZSelected = null;
+
+  onClick(tz){
+    this.today = new Date();
+    this.today.setHours(this.today.getHours() + tz);
+    this.lastTZSelected = tz;
+  }
+}

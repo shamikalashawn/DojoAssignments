@@ -1,0 +1,9 @@
+<h1>US Time Zone Display</h1>
+<button (click)="onClick(-3)" [ngClass]='{selected: lastTZSelected === -3}' type="button">PST</button>
+<button (click)="onClick(-2)" [ngClass]='{selected: lastTZSelected === -2}' type="button">MST</button>
+<button (click)="onClick(-1)" [ngClass]='{selected: lastTZSelected === -1}' type="button">CST</button>
+<button (click)="onClick(0)" [ngClass]='{selected: lastTZSelected === 0}' type="button">EST</button>
+<button (click)="onClick(0.000000000000001)" type="button">Clear</button>
+<div>
+    <h2>{{ today | date : 'MMM d, y h:mm:ss a'}}</h2>
+</div>
