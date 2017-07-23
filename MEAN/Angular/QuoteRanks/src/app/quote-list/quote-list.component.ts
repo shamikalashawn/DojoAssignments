@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 
 @Component({
@@ -8,10 +8,22 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class QuoteListComponent implements OnInit {
   @Input() myQuotes;
-  
+  @Output() deleteQuoteEvent = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  voteUp(quote) {
+    quote.rating++;
+  }
+
+  voteDown(quote) {
+    quote.rating--;
+  }
+
+  delete(quote) {
+    this.deleteQuoteEvent.emit(quote);
+  }
 }

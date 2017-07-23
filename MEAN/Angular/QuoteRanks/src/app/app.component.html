@@ -1,2 +1,2 @@
-<app-quote></app-quote>
-<app-quote-list [myQuotes]="quotes"></app-quote-list>
+<app-quote (createQuoteEvent)="createQuote($event)"></app-quote>
+<app-quote-list [myQuotes]="quotes" (deleteQuoteEvent)="deleteQuote($event)"></app-quote-list>

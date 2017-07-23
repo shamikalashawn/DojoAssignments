@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { QuoteComponent } from './quote/quote.component';
 import { QuoteListComponent } from './quote-list/quote-list.component';
+import { OrderbyPipe } from './orderby.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuoteComponent,
-    QuoteListComponent
+    QuoteListComponent,
+    OrderbyPipe,
   ],
   imports: [
     BrowserModule,
