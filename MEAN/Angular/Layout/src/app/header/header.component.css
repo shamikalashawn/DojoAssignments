@@ -1,0 +1,11 @@
+div {
+    margin: 1%;
+    width: 97%;
+    background-color: lightblue;
+    border: solid black 2px;
+}
+
+p,
+h1 {
+    margin-left: 10px;
+}

@@ -1,0 +1,22 @@
+div {
+    width: 30%;
+    margin: 1%;
+    background-color: lightblue;
+    display: inline-block;
+    height: 500px;
+    border: solid black 2px;
+    text-align: center;
+}
+
+button {
+    width: 80%;
+    margin: 5px auto;
+    text-align: center;
+    box-shadow: 2px 2px 2px black;
+    height: 25px;
+}
+
+p {
+    text-align: left;
+    margin-left: 10px;
+}

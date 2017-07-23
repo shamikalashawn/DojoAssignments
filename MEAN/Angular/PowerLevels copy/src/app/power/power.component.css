@@ -1,0 +1,15 @@
+header div {
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+}
+
+section div {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+}
+
+img {
+    width: 100%;
+}

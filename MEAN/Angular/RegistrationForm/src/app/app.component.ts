@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from './user'
 
 @Component({
   selector: 'app-root',
@@ -7,35 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   submitted = false;
-  user = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    passwordConfirmation: "",
-    streetAddress: "",
-    unitAptNumber: "",
-    city: "",
-    state: "",
-    lucky: ""
-  }
+  user = new User();
   users = [];
 
-  onSubmit(event){
-    event.preventDefault();
+  onSubmit(form){
+    // form.preventDefault();
     this.submitted = true;
     this.users.push(this.user);
-    this.user = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    passwordConfirmation: "",
-    streetAddress: "",
-    unitAptNumber: "",
-    city: "",
-    state: "",
-    lucky: ""
-    };
+    console.log('users: ', this.users);
+    console.log('submitted: ', this.submitted)
+    this.user = new User();
+    form.reset();
   }
 }

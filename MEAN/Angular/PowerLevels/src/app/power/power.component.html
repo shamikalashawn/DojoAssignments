@@ -1,0 +1,37 @@
+<fieldset>
+    <legend>PowerComponent</legend>
+    <header>
+        <div>
+            <form (submit)="onSubmit(newPower)" #newPower="ngForm">
+                <label for="power">Initial Power Level: </label>
+                <input class="form-control" type="number" name="power" min="1" max="100" id="power" [(ngModel)]="power.value" #power="ngModel">
+                <button>Calculate Powers</button>
+            </form>
+        </div>
+        <div>
+            <img src="https://i.ytimg.com/vi/w5dTQgzEtSk/maxresdefault.jpg" alt="Dragon Ball Z">
+        </div>
+    </header>
+    <section>
+        <div>
+            <app-human [myPower]="power.value*1"></app-human>
+        </div>
+        <div>
+            <app-saiyan [myPower]="power.value*10"></app-saiyan>
+        </div>
+        <div>
+            <app-super-saiyan [myPower]="power.value*90"></app-super-saiyan>
+        </div>
+    </section>
+    <section>
+        <div>
+            <app-super-saiyan-two [myPower]="power.value*150"></app-super-saiyan-two>
+        </div>
+        <div>
+            <app-super-saiyan-three [myPower]="power.value*250"></app-super-saiyan-three>
+        </div>
+        <div>
+            <app-super-saiyan-four [myPower]="power.value*500"></app-super-saiyan-four>
+        </div>
+    </section>
+</fieldset>

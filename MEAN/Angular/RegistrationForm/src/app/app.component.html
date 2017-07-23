@@ -6,37 +6,37 @@
 </div>
 <div>
     <h2>Account Information</h2>
-    <form (submit)="onSubmit($event)" #newUser="ngForm">
+    <form (submit)="onSubmit(newUser)" #newUser="ngForm">
         <div>
             <label for="firstName">*First Name</label><input type="text" name="firstName" id="firstName" [(ngModel)]="user.firstName" required #firstName="ngModel">
-            <p class="error" *ngIf=" (firstName.touched || firstName.dirty || newUser.submitted) && firstName.errors">First name is required</p>
+            <p class="error" *ngIf=" (firstName.touched || firstName.dirty) && firstName.errors">First name is required</p>
         </div>
         <div>
             <label for="lastName">*Last Name</label><input type="text" name="lastName" id="lastName" [(ngModel)]="user.lastName" required #lastName="ngModel">
-            <p class="error" *ngIf=" (lastName.touched || lastName.dirty || newUser.submitted) && lastName.errors">Last name is required</p>
+            <p class="error" *ngIf=" (lastName.touched || lastName.dirty) && lastName.errors">Last name is required</p>
         </div>
         <div>
             <label for="email">*Email</label><input type="text" name="email" id="email" [(ngModel)]="user.email" required #email="ngModel">
-            <p class="error" *ngIf=" (email.touched || email.dirty || newUser.submitted) && email.errors">Email is required</p>
+            <p class="error" *ngIf=" (email.touched || email.dirty) && email.errors">Email is required</p>
         </div>
         <div>
             <label for="password">*Password</label><input type="text" name="password" id="password" [(ngModel)]="user.password" required #password="ngModel">
-            <p class="error" *ngIf=" (password.touched || password.dirty || newUser.submitted) && password.errors">Password is required</p>
+            <p class="error" *ngIf=" (password.touched || password.dirty) && password.errors">Password is required</p>
         </div>
         <div>
             <label for="passwordConfirmation">*Password Confirmation</label><input type="text" name="passwordConfirmation" id="passwordConfirmation" [(ngModel)]="user.passwordConfirmation" required #passwordConfirmation="ngModel">
-            <p class="error" *ngIf=" (passwordConfirmation.touched || passwordConfirmation.dirty || newUser.submitted) && passwordConfirmation.errors">Password confirmation is required</p>
+            <p class="error" *ngIf=" (passwordConfirmation.touched || passwordConfirmation.dirty) && passwordConfirmation.errors">Password confirmation is required</p>
         </div>
         <div>
             <label for="streetAddress">*Street Address</label><input type="text" name="streetAddress" id="streetAddress" [(ngModel)]="user.streetAddress" required #streetAddress="ngModel">
-            <p class="error" *ngIf=" (streetAddress.touched || streetAddress.dirty || newUser.submitted) && streetAddress.errors">Street address is required</p>
+            <p class="error" *ngIf=" (streetAddress.touched || streetAddress.dirty) && streetAddress.errors">Street address is required</p>
         </div>
         <div>
             <label for="unitAptNumber">Unit/Apt #</label><input type="text" name="unitAptNumber" id="unitAptNumber" [(ngModel)]="user.unitAptNumber" #unitAptNumber="ngModel">
         </div>
         <div>
             <label for="city">*City</label><input type="text" name="city" id="city" [(ngModel)]="user.city" required #city="ngModel">
-            <p class="error" *ngIf=" (city.touched || city.dirty || newUser.submitted) && city.errors">City is required</p>
+            <p class="error" *ngIf=" (city.touched || city.dirty) && city.errors">City is required</p>
         </div>
         <div><label for="state">*State</label>
             <select name="state" id="state" [(ngModel)]="user.state" required #state="ngModel">
@@ -93,7 +93,7 @@
         <option value="WI">Wisconsin</option>
         <option value="WY">Wyoming</option>
       </select>
-            <p class="error" *ngIf=" (state.touched || state.dirty || newUser.submitted) && state.value===''">State is required</p>
+            <p class="error" *ngIf=" (state.touched || state.dirty) && state.value===''">State is required</p>
         </div>
         <div>
             <p>*I'm feeling lucky</p>
@@ -101,7 +101,7 @@
             <input type="radio" name="luckyYes" value="Yes" id="yes" [(ngModel)]="user.lucky" #luckyYes="ngModel">
             <label for="no">No</label>
             <input type="radio" name="luckyNo" value="No" id="no" [(ngModel)]="user.lucky" #luckyNo="ngModel">
-            <p class="error" *ngIf=" (luckyYes.touched || luckyYes.dirty || luckyNo.touched || luckyNo.dirty || newUser.submitted) && (luckyYes.value==='' && luckyNo.value==='')">Please tell us if you are feeling lucky as it is required</p>
+            <p class="error" *ngIf=" (luckyYes.touched || luckyYes.dirty || luckyNo.touched || luckyNo.dirty) && (luckyYes.value==='' && luckyNo.value==='')">Please tell us if you are feeling lucky as it is required</p>
         </div>
         <button [hidden]="newUser.invalid">Register</button>
     </form>
