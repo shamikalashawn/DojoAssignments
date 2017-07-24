@@ -1,0 +1,6 @@
+<div *ngFor="let note of notes">
+    <div *ngIf="note.createdAt">
+        <span>Noted on: {{note.createdAt | date: 'medium'}}</span>
+        <p>{{note.message}}</p>
+    </div>
+</div>

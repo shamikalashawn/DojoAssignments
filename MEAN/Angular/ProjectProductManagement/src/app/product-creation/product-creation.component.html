@@ -1,0 +1,24 @@
+<h1>Create Product</h1>
+<form #newProduct="ngForm">
+    <div>
+        <label for="title">Title</label>
+        <input id="title" name="title" required minlength="4" #title="ngModel" [(ngModel)]="product.title" type="text">
+        <div *ngIf="title.errors">
+            <p *ngIf="(title.touched || title.dirty) && title.errors.required">Title is required</p>
+            <p *ngIf="(title.touched || title.dirty) && title.errors.minlength">Title must be at least 4 characters in length</p>
+
+        </div>
+    </div>
+    <div>
+        <label for="price">Price</label>
+        <input id="price" name="price" required #price="ngModel" [(ngModel)]="product.price" type="text">
+        <div *ngIf="(price.touched || price.dirty) && price.errors">
+            Price is required
+        </div>
+    </div>
+    <div>
+        <label for="imageUrl">Image Url</label>
+        <input id="imageUrl" name="imageUrl" #imageUrl="ngModel" [(ngModel)]="product.imageUrl" type="text">
+    </div>
+    <button [hidden]="newProduct.invalid" type="submit"><a (click)="onSubmit(newProduct)" [routerLink]="['/create']">Create</a></button>
+</form>

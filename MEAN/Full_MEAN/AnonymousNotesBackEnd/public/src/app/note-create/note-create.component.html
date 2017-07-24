@@ -1,0 +1,10 @@
+<div>
+    <form (submit)="onSubmit(newNote)" #newNote="ngForm">
+        <label for="message">Note</label>
+        <input type="text" id="message" name="message" minlength="3" [(ngModel)]="note.message" #message="ngModel">
+        <div *ngIf="message.errors">
+            <p>Note must be at least {{message.errors.requiredLength}} characters in length. It is currently {{message.errors.actualLength}} characters in length. </p>
+        </div>
+        <button [hidden]="newNote.invalid">Add Note</button>
+    </form>
+</div>

@@ -1,0 +1,8 @@
+<h1>Products List</h1>
+<div *ngFor="let product of products; let idx=index">
+    <img src="{{product.imageUrl}}" alt="{{product.title}}">
+    <h3>{{product.title}}</h3>
+    <h3>${{product.price}}</h3>
+    <button><a [routerLink]="['/product-edit',idx]">Edit</a></button>
+    <button (click)="onDelete(product)">Delete</button>
+</div>
