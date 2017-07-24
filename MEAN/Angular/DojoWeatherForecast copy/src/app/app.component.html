@@ -1,0 +1,14 @@
+<h1>Dojo Weather Forecast</h1>
+<br>
+<a [routerLink]="['/burbank']">Burbank CA</a> <span>&#124;</span>
+<a [routerLink]="['/chicago']">Chicago IL</a> <span>&#124;</span>
+<a [routerLink]="['/dallas']">Dallas TX</a> <span>&#124;</span>
+<a [routerLink]="['/dc']">Washington DC</a> <span>&#124;</span>
+<a [routerLink]="['/sanjose']">San Jose CA</a> <span>&#124;</span>
+<a [routerLink]="['/seattle']">Seattle WA</a> <span>&#124;</span>
+<fieldset>
+    <legend>
+        Your City's Weather
+    </legend>
+    <router-outlet></router-outlet>
+</fieldset>
