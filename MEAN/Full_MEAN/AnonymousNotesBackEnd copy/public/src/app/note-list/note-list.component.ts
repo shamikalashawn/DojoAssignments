@@ -4,16 +4,12 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-  selector: 'app-note-create',
-  templateUrl: './note-create.component.html',
-  styleUrls: ['./note-create.component.css']
+  selector: 'app-note-list',
+  templateUrl: './note-list.component.html',
+  styleUrls: ['./note-list.component.css']
 })
-export class NoteCreateComponent implements OnInit {
-  note = {
-    message: "",
-    author: ""
-  }
-notes;
+export class NoteListComponent implements OnInit {
+  notes;
   subscription: Subscription;
 
   constructor(private _httpService: HttpService) { 
@@ -40,20 +36,6 @@ notes;
     this._httpService.retrieveNotes()
     .then(data => this.notes = data)
     .catch(console.log)
-  }
-
-  updateNotes(){
-    this._httpService.updateNotes(this.notes);
-  }
-
-  onSubmit(form){
-    this._httpService.createNote(this.note)
-    .then(data => {
-      this.notes = data;
-      this.updateNotes();
-    })
-    .catch(err => console.log('error: ', err))
-    form.reset();
   }
 
 }

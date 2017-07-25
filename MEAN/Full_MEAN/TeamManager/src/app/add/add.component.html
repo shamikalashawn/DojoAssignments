@@ -1,0 +1,20 @@
+<h1><a [route-link]=[ "/players", "list"]>List</a></h1> <span>|</span>
+<h1><a [route-link]=[ "/players", "add"]>Add Player</a></h1> <span>|</span>
+<div>
+    <h3>Add Player</h3>
+    <form (submit)="onSubmit(newPlayer)" #newPlayer="ngForm">
+        <div>
+            <label for="name">Player Name: </label>
+            <input type="text" id="name" name="name" #name="ngModel" [(ngModel)]="player.name">
+        </div>
+        <div *ngIf="(name.touched || name.dirty) && name.errors">
+            <p *ngIf="name.errors.required">*Name must be entered</p>
+            <p *ngIf="name.errors.minlength">*Name must be at least 2 characters long</p>
+        </div>
+        <div>
+            <label for="position">Preferred Position: </label>
+            <input type="text" id="position" name="position" #position="ngModel" [(ngModel)]="player.position">
+        </div>
+        <button [hidden]="newPlayer.invalid">Add</button>
+    </form>
+</div>
