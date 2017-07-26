@@ -7,7 +7,11 @@ const playerSchema = new Schema({
         trim: true,
         minlength: 3
     },
-    position: String
+    position: String,
+    status: {
+        type: String,
+        default: 'Undecided'
+    }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Player', playerSchema);

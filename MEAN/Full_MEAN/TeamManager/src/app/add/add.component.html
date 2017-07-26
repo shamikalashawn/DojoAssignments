@@ -1,5 +1,6 @@
-<h1><a [route-link]=[ "/players", "list"]>List</a></h1> <span>|</span>
-<h1><a [route-link]=[ "/players", "add"]>Add Player</a></h1> <span>|</span>
+<h1><a [routerLink]='[ "/players", "list"]'>List</a></h1> <span>|</span>
+<h1><a [routerLink]='[ "/players", "add"]'>Add Player</a></h1>
+<br>
 <div>
     <h3>Add Player</h3>
     <form (submit)="onSubmit(newPlayer)" #newPlayer="ngForm">

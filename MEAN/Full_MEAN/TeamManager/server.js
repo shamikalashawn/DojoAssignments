@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 app.use(parser.urlencoded({ extended: true }));
 app.use(parser.json());
 //angular app
-app.use(express.static(path.join(__dirname, 'TeamManager/dist')));
+app.use(express.static(path.join(__dirname, 'dist')));
 //database
 require('./server/config/database');
 //routes

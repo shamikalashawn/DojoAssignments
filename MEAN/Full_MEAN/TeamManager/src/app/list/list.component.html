@@ -1,3 +1,19 @@
-<p>
-  list works!
-</p>
+<h1><a [routerLink]='[ "/players", "list"]'>List</a></h1> <span>|</span>
+<h1><a [routerLink]='[ "/players", "add"]'>Add Player</a></h1>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>Team Name</th>
+            <th>Preferred Position</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let player of players">
+            <td> {{player.name}} </td>
+            <td> {{player.position}} </td>
+            <td> <button type="">Delete</button> </td>
+        </tr>
+    </tbody>
+</table>

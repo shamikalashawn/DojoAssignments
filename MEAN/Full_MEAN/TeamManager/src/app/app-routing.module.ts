@@ -10,18 +10,24 @@ import { GameComponent } from './game/game.component';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'players/list', pathMatch: 'full'
+        redirectTo: 'players/list', 
+        pathMatch: 'full'
     },
+    // {
+    //     path: '',
+    //     component: AppComponent
+    // },
     {
         path: 'players/list',
-        component: ListComponent
+        component: ListComponent,
+        pathMatch: 'full'
     },
     {
         path: 'players/add',
         component: AddComponent
     },
     {
-        path: 'status/game/1',
+        path: 'status/game/:id',
         component: GameComponent
     },
 ];
