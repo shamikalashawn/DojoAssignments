@@ -13,18 +13,18 @@ const routes: Routes = [
         redirectTo: 'players/list', 
         pathMatch: 'full'
     },
-    // {
-    //     path: '',
-    //     component: AppComponent
-    // },
     {
-        path: 'players/list',
-        component: ListComponent,
-        pathMatch: 'full'
-    },
-    {
-        path: 'players/add',
-        component: AddComponent
+        path: 'players',
+        children: [
+            {
+                path: "list",
+                component: ListComponent,
+            }, 
+            {
+                path: "add",
+                component: AddComponent
+            }
+        ]
     },
     {
         path: 'status/game/:id',

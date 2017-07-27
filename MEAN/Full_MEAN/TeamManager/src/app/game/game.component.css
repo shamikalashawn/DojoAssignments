@@ -9,3 +9,7 @@
 .yellow {
     background-color: yellow;
 }
+
+h3 {
+    display: inline-block;
+}

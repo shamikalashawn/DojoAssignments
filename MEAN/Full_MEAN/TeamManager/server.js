@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 //database
 require('./server/config/database');
 //routes
-const routes_setter = require('./server/config/routes/players.routes');
+app.use(require('./server/config/routes/players.routes'));
 // routes_setter(app);
 
 app.listen(port, function() {

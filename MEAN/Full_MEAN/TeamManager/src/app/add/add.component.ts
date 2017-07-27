@@ -14,46 +14,47 @@ export class AddComponent implements OnInit {
     position: "",
     status: "Undecided"
   }
-  players;
-  subscription: Subscription;
+  // players;
+  // subscription: Subscription;
 
   constructor(private _httpService: HttpService) {
-    this.retrieveCurrentPlayersData();
-    this.subscription = _httpService.observedPlayers.subscribe(
-      (updatedPlayers) => {this.players = updatedPlayers;},
-      (err) => {},
-      () => {}
-    )
-    this._httpService.retrievePlayers()
-    .then(data => this.players = data)
-    .catch(console.log)
+    // this.retrieveCurrentPlayersData();
+    // this.subscription = _httpService.observedPlayers.subscribe(
+    //   (updatedPlayers) => {this.players = updatedPlayers;},
+    //   (err) => {},
+    //   () => {}
+    // )
+    // this._httpService.retrievePlayers()
+    // .then(data => this.players = data)
+    // .catch(console.log)
    }
 
-  onDestroy(){
-    this.subscription.unsubscribe();
-  }
+  // onDestroy(){
+  //   this.subscription.unsubscribe();
+  // }
 
-  retrieveCurrentPlayersData(){
-    this.players = this._httpService.observedPlayers.getValue();
-  }
+  // retrieveCurrentPlayersData(){
+  //   this.players = this._httpService.observedPlayers.getValue();
+  // }
 
   ngOnInit() {
-  this._httpService.retrievePlayers()
-  .then(data => this.players = data)
-  .catch(console.log)
+  // this._httpService.retrievePlayers()
+  // .then(data => this.players = data)
+  // .catch(console.log)
   }
 
-  updatePlayers(){
-    this._httpService.updatePlayers(this.players);
-  }
+  // updatePlayers(){
+  //   this._httpService.updatePlayers(this.players);
+  // }
 
   onSubmit(form){
     this._httpService.createPlayer(this.player)
     .then(data => {
-      this.players = data;
-      this.updatePlayers();
+      console.log("creating player with following data: ", data);
+      // this.players = data;
+      // this.updatePlayers();
       form.reset();
     })
-    .catch(console.log)
+    .catch(err => console.log("error while creating player: ", err))
   }
 }
