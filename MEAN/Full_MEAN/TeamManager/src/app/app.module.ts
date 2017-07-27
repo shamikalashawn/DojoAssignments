@@ -8,14 +8,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
-import { GameComponent } from './game/game.component';
+import { GameComponent } from './status/game/game.component';
+import { StatusComponent } from './status/status.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     AddComponent,
-    GameComponent
+    GameComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,8 @@
+<h1>Player Status - Game {{game}}</h1>
+<h3><a [routerLink]='[ "/status", "game", "1"]'>Game 1</a></h3> <span>|</span>
+<h3><a [routerLink]='[ "/status", "game", "2"]'>Game 2</a></h3> <span>|</span>
+<h3><a [routerLink]='[ "/status", "game", "3"]'>Game 3</a></h3>
+<br>
+<app-game *ngIf="game == 1"></app-game>
+<app-game *ngIf="game == 2"></app-game>
+<app-game *ngIf="game == 3"></app-game>

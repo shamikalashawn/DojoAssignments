@@ -9,16 +9,25 @@ import 'rxjs/add/operator/toPromise';
 export class HttpService {
 
   observedPlayers = new BehaviorSubject(null);
-  updatePlayers(players: Array<any>){
-    this.observedPlayers.next(players);
-  }
+  
   constructor(private _http: Http) { }
   
+  updatePlayers(players: Array<any>){
+    console.log('...updating players...');
+    this.observedPlayers.next(players);
+  }
+
   retrievePlayers(){
     return this._http.get('/players').map(data => data.json()).toPromise();
   }
 
   createPlayer(player){
+    console.log('attempting to use createPlayer function with player: ', player);
     return this._http.post('/players', player).map(data => data.json()).toPromise();
+  }
+
+  deletePlayer(id){
+    console.log('beginning process to delete player with id: ', id);
+    return this._http.delete(`/players/${ id }`).map(data => data.json()).toPromise();
   }
 }

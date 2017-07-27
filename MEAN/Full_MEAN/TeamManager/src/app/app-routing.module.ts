@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AddComponent } from './add/add.component';
 import { ListComponent } from './list/list.component';
-import { GameComponent } from './game/game.component';
+import { StatusComponent } from './status/status.component';
 
 const routes: Routes = [
     {
@@ -27,8 +27,8 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'status/game/:id',
-        component: GameComponent
+        path: "status/game/:id",
+        component: StatusComponent
     },
 ];
 

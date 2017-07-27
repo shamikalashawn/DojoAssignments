@@ -19,13 +19,19 @@ module.exports = {
         console.log("Created new player: ", newPlayer);
         newPlayer.save(function(err) {
             if (err) {
-                console.log(err);
+                console.log("error while trying to save newPlayer: ", err);
             }
             console.log('New player saved');
-            response.redirect('/players/list')
+            response.json(newPlayer);
         })
     },
     destroy(request, response) {
-
+        console.log('in server using destroy method on player with id: ', request.params.id);
+        Player.findByIdAndRemove(request.params.id)
+            .then(function(player) {
+                console.log('player has been deleted: ', player);
+                reponse.json(player);
+            })
+            .catch(console.log())
     },
 }
